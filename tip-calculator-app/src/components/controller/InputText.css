@@ -1,0 +1,46 @@
+.input-text p{
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    color: hsl(186, 14%, 43%);
+}
+
+.input-text .input {
+    width: 90%;
+    padding: 0 1rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input img{
+    width: 4%;
+    height: 50%;
+}
+
+.input .text-data{
+    width: 90%;
+    height: 100%;
+    background-color: inherit;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color:hsl(183, 100%, 15%);
+    text-align: right;
+}
+
+.input .text-data:focus{
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

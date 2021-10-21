@@ -1,0 +1,28 @@
+.bill-display{
+    width: 50%;
+    height: 100%;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsl(183, 100%, 15%);
+}
+
+.bill-display .text-content{
+    width: 100%;
+}
+
+.bill-display button{
+    width: 90%;
+    height: 3.6rem;
+    text-transform: uppercase;
+    color: hsl(183, 100%, 15%);
+    background-color: hsl(172, 67%, 45%);
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
