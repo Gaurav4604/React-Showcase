@@ -5,15 +5,14 @@ const TipText = (props) => {
   return (
     <div className="tip-text">
       <input
-        type={props.active? "number": "text"}
+        placeholder="custom"
+        type={props.active? "number" : "text"}
+        value={props.active? props.customValue: ""}
         onChange={(e) => {
-          console.log(e.target.value)
-          if (e.target.value >= 0 && e.target.value < 100){
-            props.callback(props.keyForRef, e.target.value);
-          }
+          console.log(props.customValue);
+          props.callback(props.keyForRef, true, e.target.value);
         }}
         onSelect={() => props.callback(props.keyForRef)}
-        value={props.active? props.customValue : "custom"}
       />
     </div>
   );

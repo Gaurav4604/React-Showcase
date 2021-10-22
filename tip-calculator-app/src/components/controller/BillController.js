@@ -1,8 +1,6 @@
 import "./BillController.css";
 import React, { Component } from "react";
 import InputText from "./components/InputText/InputText";
-import TipButton from "./components/Tips/TipButton";
-import TipText from "./components/Tips/TipText";
 import TipContainer from "./components/Tips/TipContainer";
 
 class BillController extends Component {

@@ -9,19 +9,19 @@ class TipContainer extends Component {
     this.tipValues = [5, 10, 15, 25, 50, ""];
     this.state = {
       activeIndex: "",
-      customValue: 35,
+      customValue: 10,
     };
   }
 
-  onValueActivation = (index, customValue) => {
-    if(customValue)
+  onValueActivation = (index, flag, customValue) => {
+    if(index === 5 && flag)
         this.setState({
         activeIndex: index,
-        customValue: parseFloat(customValue)
+        customValue: customValue
       }, () => {
         this.props.onInputChange({
             refKey: this.props.refKey,
-            value: parseFloat(customValue)
+            value: customValue
         })
       });
     else
