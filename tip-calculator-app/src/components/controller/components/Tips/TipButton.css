@@ -1,0 +1,18 @@
+.tip-button{
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 0.2rem;
+    font-size: 1.5rem;
+    width: 25%;
+    flex: 0 0 30%;
+    height: 3rem;
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.tip-button:active, .tip-button.active{
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}

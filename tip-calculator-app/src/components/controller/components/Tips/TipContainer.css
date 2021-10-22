@@ -1,0 +1,12 @@
+.title{
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    color: hsl(186, 14%, 43%);
+}
+.tip-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -26,7 +26,8 @@
 }
 
 .main-content{
-    width: 60vw;
+    width: 80vw;
+    max-width: 1080px;
     height: 60vh;
     border-radius: 1.5rem;
     background-color: hsl(0, 0%, 100%);

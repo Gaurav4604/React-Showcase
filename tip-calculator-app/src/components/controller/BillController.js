@@ -1,50 +1,76 @@
-import './BillController.css'
-import React, { Component } from 'react';
-import InputText from './InputText';
+import "./BillController.css";
+import React, { Component } from "react";
+import InputText from "./components/InputText/InputText";
+import TipButton from "./components/Tips/TipButton";
+import TipText from "./components/Tips/TipText";
+import TipContainer from "./components/Tips/TipContainer";
 
 class BillController extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            bill: 0,
-            tip: 10,
-            people: 1,
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      bill: 100,
+      tip: 0,
+      people: 1,
+    };
+  }
 
-    onInputChange = (inputState) => {
-        if (inputState.refKey === "bill"){
-            this.setState({
-                bill: inputState.value
-            }, () => {
-                this.props.refreshParent(this.state.bill, this.state.people);
-            })
+  onInputChange = (inputState) => {
+    if (inputState.refKey === "bill") {
+      this.setState(
+        {
+          bill: inputState.value,
+        },
+        () => {
+          this.props.refreshParent(this.state.bill, this.state.people);
         }
-        if (inputState.refKey === "tip"){
-            this.setState({
-                tip: inputState.value
-            }, () => {
-                this.props.refreshParent(this.state.bill, this.state.people);
-            })
-        }
-        if (inputState.refKey === "people"){
-            this.setState({
-                people: inputState.value
-            }, () => {
-                this.props.refreshParent(this.state.bill, this.state.people);
-            })
-        }
-        
+      );
     }
-    render() {
-        return (
-            <div className="bill-controller">
-                <InputText objectRef="bill" title="Bill" imgSrc="icon-dollar.svg" defaultValue={0} onInputChange={this.onInputChange}/>
-                <InputText objectRef="tip" title="Select Tip %" imgSrc="icon-dollar.svg" defaultValue={10} onInputChange={this.onInputChange}/>
-                <InputText objectRef="people" title="Number of People" imgSrc="icon-person.svg" defaultValue={1} onInputChange={this.onInputChange}/>
-            </div>
-        );
+    if (inputState.refKey === "tip") {
+      this.setState(
+        {
+          tip: inputState.value,
+        },
+        () => {
+          this.props.refreshParent(this.state.bill, this.state.people);
+        }
+      );
     }
+    if (inputState.refKey === "people") {
+      this.setState(
+        {
+          people: inputState.value,
+        },
+        () => {
+          this.props.refreshParent(this.state.bill, this.state.people);
+        }
+      );
+    }
+  };
+  render() {
+    return (
+      <div className="bill-controller">
+        <InputText
+          objectRef="bill"
+          title="Bill"
+          imgSrc="icon-dollar.svg"
+          value={this.state.bill}
+          onInputChange={this.onInputChange}
+        />
+        <TipContainer title="Select Tip %" 
+          onInputChange={this.onInputChange}
+          objectRef="tip"
+          />
+        <InputText
+          objectRef="people"
+          title="Number of People" 
+          imgSrc="icon-person.svg"
+          value={this.state.people}
+          onInputChange={this.onInputChange}
+        />
+      </div>
+    );
+  }
 }
 
 export default BillController;

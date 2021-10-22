@@ -1,0 +1,26 @@
+.tip-text, .tip-text input{
+    background-color: hsl(189, 41%, 97%);
+    color: hsl(184, 14%, 56%);
+    border-radius: 0.2rem;
+    font-size: 1.5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+}
+.tip-text {
+    flex: 0 0 30%;
+    margin-bottom: 1rem;
+}
+.tip-text input {
+    width: 100%;
+}
+.tip-text input:focus{
+    outline: none;
+    padding: 0 1rem;
+    text-align: right;
+    color: hsl(183, 100%, 15%);
+    border: 0.15rem solid hsl(172, 67%, 45%);
+}

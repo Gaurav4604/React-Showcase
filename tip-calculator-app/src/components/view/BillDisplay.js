@@ -1,6 +1,6 @@
 import './BillDisplay.css'
 import React, { Component } from 'react';
-import DisplayElement from './DisplayElement';
+import DisplayElement from './DisplayElement/DisplayElement';
 
 class BillDisplay extends Component {
     render() {
