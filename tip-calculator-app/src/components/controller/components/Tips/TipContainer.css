@@ -1,7 +1,20 @@
-.title{
+.title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.title-container p:first-child{
     font-size: 1.3rem;
     margin-bottom: 0.2rem;
     color: hsl(186, 14%, 43%);
+}
+
+.title-container p:last-child{
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    color: hsl(0, 100%, 50%);
 }
 .tip-container{
     display: flex;

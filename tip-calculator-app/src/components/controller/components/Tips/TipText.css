@@ -30,6 +30,11 @@
     border: 0.15rem solid hsl(172, 67%, 45%);
 }
 
+.tip-text input.error:focus{
+    border: 0.15rem solid hsl(0, 100%, 50%);
+    
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

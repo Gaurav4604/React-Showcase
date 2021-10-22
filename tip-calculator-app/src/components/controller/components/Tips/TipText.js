@@ -2,17 +2,18 @@ import "./TipText.css";
 import React from "react";
 
 const TipText = (props) => {
+  const modifiedClassName = `${props.error? 'error' : ""}`.trim();
   return (
     <div className="tip-text">
       <input
+        className={modifiedClassName}
         placeholder="custom"
-        type={props.active? "number" : "text"}
+        type="number"
         value={props.active? props.customValue: ""}
         onChange={(e) => {
-          console.log(props.customValue);
-          props.callback(props.keyForRef, true, e.target.value);
+          props.callback(props.keyForRef, e.target.value);
         }}
-        onSelect={() => props.callback(props.keyForRef)}
+        onSelect={(e) => props.callback(props.keyForRef, e.target.value)}
       />
     </div>
   );

@@ -9,36 +9,50 @@ class TipContainer extends Component {
     this.tipValues = [5, 10, 15, 25, 50, ""];
     this.state = {
       activeIndex: "",
-      customValue: 10,
+      customValue: 35,
+      error: false,
     };
   }
 
-  onValueActivation = (index, flag, customValue) => {
-    if(index === 5 && flag)
-        this.setState({
-        activeIndex: index,
-        customValue: customValue
-      }, () => {
-        this.props.onInputChange({
+  onValueActivation = (index, customValue) => {
+    if (index === 5) {
+      this.setState(
+        {
+          activeIndex: index,
+          customValue: customValue,
+          error: customValue === "" ? true : false,
+          errorText: customValue ? "" : "tip cannot be empty",
+        },
+        () => {
+          this.props.onInputChange({
             refKey: this.props.refKey,
-            value: customValue
-        })
-      });
-    else
-    this.setState({
-        activeIndex: index,
-      }, () => {
-        this.props.onInputChange({
+            value: customValue,
+          });
+        }
+      );
+    } else
+      this.setState(
+        {
+          activeIndex: index,
+          error: false,
+          errorText: ""
+        },
+        () => {
+          this.props.onInputChange({
             refKey: this.props.refKey,
-            value: parseFloat(this.tipValues[index])
-        })
-    });
-  }
+            value: parseFloat(this.tipValues[index]),
+          });
+        }
+      );
+  };
 
   render() {
     return (
       <div>
-        <p className="title">{this.props.title}</p>
+        <div className="title-container">
+          <p>{this.props.title}</p>
+          <p>{this.state.errorText}</p>
+        </div>
         <div className="tip-container">
           {this.tipValues.map((value, index) => {
             if (value) {
@@ -59,6 +73,7 @@ class TipContainer extends Component {
                   active={index === this.state.activeIndex}
                   keyForRef={index}
                   key={index}
+                  error={this.state.error}
                 />
               );
             }
