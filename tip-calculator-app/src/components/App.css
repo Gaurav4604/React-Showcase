@@ -45,4 +45,8 @@
   .title {
     margin-top: 1rem;
   }
+  .container {
+    flex-direction: column;
+    overflow: scroll;
+  }
 }

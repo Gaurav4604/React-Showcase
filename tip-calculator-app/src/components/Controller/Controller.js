@@ -17,6 +17,8 @@ const Controller = (props) => {
         title="Bill"
         imgSrc="icon-dollar.svg"
         setResetFlag={props.setResetFlag}
+        resetFlag={props.flag}
+        error="Please enter a valid amount"
         onChange={props.addBillAmount}
         value={props.billAmount}
       />
@@ -25,6 +27,8 @@ const Controller = (props) => {
         title="Select Tip %"
         imgSrc="icon-dollar.svg"
         setResetFlag={props.setResetFlag}
+        resetFlag={props.flag}
+        error="Please enter a valid tip Percentage"
         onChange={props.addTipPercentage}
         value={props.tipPercent}
       />
@@ -33,6 +37,8 @@ const Controller = (props) => {
         title="Number of People"
         imgSrc="icon-person.svg"
         setResetFlag={props.setResetFlag}
+        resetFlag={props.flag}
+        error="Please enter valid number of People"
         onChange={props.addNumberOfPeople}
         value={props.noOfPeople}
       />
@@ -45,6 +51,7 @@ const mapStateToProps = (state) => {
     billAmount: state.billAmount,
     tipPercent: state.tipPercent,
     noOfPeople: state.noOfPeople,
+    flag: state.resetFlag,
   };
 };
 

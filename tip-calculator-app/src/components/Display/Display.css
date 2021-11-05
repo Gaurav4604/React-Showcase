@@ -35,3 +35,10 @@
   color: hsl(183, 100%, 15%);
   border-radius: 0.5rem;
 }
+
+@media only screen and (max-width: 500px) {
+  .display {
+    width: 100%;
+    height: 50%;
+  }
+}
