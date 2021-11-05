@@ -1,40 +1,46 @@
-import './App.css';
-import React, { Component } from 'react';
-import BillController from './controller/BillController';
-import BillDisplay from './view/BillDisplay';
+import "./App.css";
+import React from "react";
+import { connect } from "react-redux";
+import {
+  addBillAmount,
+  addTipPercentage,
+  addNumberOfPeople,
+  setResetFlag,
+} from "../actions";
+import Controller from "./Controller/Controller";
+import Display from "./Display/Display";
 
-class App extends Component {
+const App = (props) => {
+  // props.setResetFlag(true);
+  // props.addNumberOfPeople(5);
+  // props.addBillAmount(500);
+  // props.addTipPercentage(20);
+  return (
+    <div className="body">
+      <div className="title">
+        <p>Spli</p>
+        <p>Tter</p>
+      </div>
+      <div className="container">
+        <Controller />
+        <Display />
+      </div>
+    </div>
+  );
+};
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            tip: "0.00",
-            people: "0.00"
-        }
-    }
+const mapStateToProps = (state) => {
+  return {
+    tip: state.tipPercent,
+    people: state.noOfPeople,
+    bill: state.billAmount,
+    resetFlag: state.resetFlag,
+  };
+};
 
-    refreshParent = (bill, people) => {
-        this.setState({
-            tip: bill,
-            people: people
-        })
-    }
-
-    render() {
-        return (
-            <div className="container">
-                <h1 id='title'>
-                    spli <br />
-                    tter
-                </h1>
-
-                <div className="main-content">
-                    <BillController refreshParent={this.refreshParent}/>
-                    <BillDisplay tip={this.state.tip} person={this.state.people}/>
-                </div>
-            </div>
-        );
-    }
-}
-
-export default App;
+export default connect(mapStateToProps, {
+  addBillAmount,
+  addTipPercentage,
+  addNumberOfPeople,
+  setResetFlag,
+})(App);
