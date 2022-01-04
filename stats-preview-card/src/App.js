@@ -10,6 +10,7 @@ const StatsField = ({ value, name }) => {
           fontFamily: "Outfit, sans-serif",
           fontWeight: "700",
           fontSize: "1.5rem",
+          textAlign: useMediaQuery("(min-width: 1000px)") ? "start" : "center",
           letterSpacing: "0.1rem",
           marginBottom: "0.2rem",
         }}
@@ -24,6 +25,7 @@ const StatsField = ({ value, name }) => {
           textTransform: "uppercase",
           letterSpacing: "0.1rem",
           fontSize: "0.7rem",
+          textAlign: useMediaQuery("(min-width: 1000px)") ? "start" : "center",
         }}
       >
         {name}
@@ -46,8 +48,8 @@ const App = () => {
     >
       <Card
         sx={{
-          width: useMediaQuery("(min-width:700px") ? "90vw" : "80vw",
-          height: useMediaQuery("(min-width:800px") ? "50vh" : "90vh",
+          width: useMediaQuery("(min-width:1000px)") ? "90vw" : "80vw",
+          height: useMediaQuery("(min-width:1000px)") ? "50vh" : "90vh",
           maxWidth: "1000px",
           backgroundColor: "hsl(244, 38%, 16%)",
           borderRadius: "0.6rem",
@@ -55,7 +57,7 @@ const App = () => {
       >
         <Stack
           sx={{
-            flexDirection: useMediaQuery("(min-width:800px")
+            flexDirection: useMediaQuery("(min-width:1000px)")
               ? "row"
               : "column-reverse",
           }}
@@ -63,10 +65,12 @@ const App = () => {
         >
           <Stack
             sx={{
-              paddingTop: useMediaQuery("(min-width: 700px)") ? "5rem" : "2rem",
+              paddingTop: useMediaQuery("(min-width: 1000px)")
+                ? "5rem"
+                : "2rem",
               paddingLeft: "2rem",
               paddingRight: "2rem",
-              flex: useMediaQuery("(min-width:800px)") ? "1" : "2",
+              flex: useMediaQuery("(min-width:1000px)") ? "1" : "2",
               // bgcolor: "white",
               height: "100%",
             }}
@@ -78,7 +82,7 @@ const App = () => {
                   : "2rem",
                 fontFamily: "Outfit, sans-serif",
                 fontWeight: "700",
-                textAlign: useMediaQuery("(min-width: 700px)")
+                textAlign: useMediaQuery("(min-width: 1000px)")
                   ? "start"
                   : "center",
                 color: "white",
@@ -96,7 +100,7 @@ const App = () => {
                 fontFamily: "Outfit, sans-serif",
                 fontWeight: "300",
                 lineHeight: "150%",
-                textAlign: useMediaQuery("(min-width: 700px)")
+                textAlign: useMediaQuery("(min-width: 1000px)")
                   ? "start"
                   : "center",
                 fontSize: "1.1rem",
@@ -109,14 +113,16 @@ const App = () => {
 
             <Stack
               spacing={6}
-              direction={useMediaQuery("(min-width: 700px)") ? "row" : "column"}
+              direction={
+                useMediaQuery("(min-width: 1000px)") ? "row" : "column"
+              }
               sx={{
                 height: "20%",
                 width: "100%",
-                flexDirection: useMediaQuery("(min-width: 700px)")
+                flexDirection: useMediaQuery("(min-width: 1000px)")
                   ? "row"
                   : "column",
-                alignItems: useMediaQuery("(min-width: 700px)")
+                alignItems: useMediaQuery("(min-width: 1000px)")
                   ? "flex-start"
                   : "center",
                 marginTop: "2.5rem",
