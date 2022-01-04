@@ -77,9 +77,9 @@ const App = () => {
           >
             <h1
               style={{
-                fontSize: useMediaQuery("(min-width:1150px)")
+                fontSize: useMediaQuery("(min-width:1000px)")
                   ? "2.5rem"
-                  : "2rem",
+                  : "3rem",
                 fontFamily: "Outfit, sans-serif",
                 fontWeight: "700",
                 textAlign: useMediaQuery("(min-width: 1000px)")
