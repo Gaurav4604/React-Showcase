@@ -1,5 +1,36 @@
-import { Card, Container, Grid, Stack, useMediaQuery } from "@mui/material";
+import { Card, Grid, Stack, useMediaQuery } from "@mui/material";
 import React from "react";
+
+const StatsField = ({ value, name }) => {
+  return (
+    <Stack>
+      <h1
+        style={{
+          color: "white",
+          fontFamily: "Outfit, sans-serif",
+          fontWeight: "700",
+          fontSize: "1.5rem",
+          letterSpacing: "0.1rem",
+          marginBottom: "0.2rem",
+        }}
+      >
+        {value}
+      </h1>
+      <p
+        style={{
+          color: "hsla(0, 0%, 100%, 0.6)",
+          fontFamily: "Outfit, sans-serif",
+          fontWeight: "300",
+          textTransform: "uppercase",
+          letterSpacing: "0.1rem",
+          fontSize: "0.7rem",
+        }}
+      >
+        {name}
+      </p>
+    </Stack>
+  );
+};
 
 const App = () => {
   return (
@@ -15,21 +46,24 @@ const App = () => {
     >
       <Card
         sx={{
-          width: useMediaQuery("(min-width:700px") ? "70vw" : "80vw",
+          width: useMediaQuery("(min-width:700px") ? "90vw" : "80vw",
           height: useMediaQuery("(min-width:800px") ? "50vh" : "90vh",
+          maxWidth: "1000px",
           backgroundColor: "hsl(244, 38%, 16%)",
           borderRadius: "0.6rem",
         }}
       >
         <Stack
-          direction={
-            useMediaQuery("(min-width:800px") ? "row" : "column-reverse"
-          }
+          sx={{
+            flexDirection: useMediaQuery("(min-width:800px")
+              ? "row"
+              : "column-reverse",
+          }}
           height={"100%"}
         >
           <Stack
             sx={{
-              paddingTop: "5rem",
+              paddingTop: useMediaQuery("(min-width: 700px)") ? "5rem" : "2rem",
               paddingLeft: "2rem",
               paddingRight: "2rem",
               flex: useMediaQuery("(min-width:800px)") ? "1" : "2",
@@ -39,24 +73,55 @@ const App = () => {
           >
             <h1
               style={{
+                fontSize: useMediaQuery("(min-width:1150px)")
+                  ? "2.5rem"
+                  : "2rem",
                 fontFamily: "Outfit, sans-serif",
                 fontWeight: "700",
+                textAlign: useMediaQuery("(min-width: 700px)")
+                  ? "start"
+                  : "center",
                 color: "white",
               }}
             >
               Get <span style={{ color: "hsl(277, 64%, 61%)" }}>insights</span>{" "}
-              that help your business grow.
+              that help
+              {useMediaQuery("(min-width:1150px)") ? <br /> : " "}
+              your business grow.
             </h1>
             <p
               style={{
+                marginTop: "1.5rem",
                 color: "hsla(0, 0%, 100%, 0.75)",
                 fontFamily: "Outfit, sans-serif",
                 fontWeight: "300",
+                lineHeight: "150%",
+                textAlign: useMediaQuery("(min-width: 700px)")
+                  ? "start"
+                  : "center",
+                fontSize: "1.1rem",
               }}
             >
-              Discover the benefits of data analytics and make better decisions
-              regarding revenue, customer experience, and overall efficiency.
+              Discover the benefits of data analytics and make <br /> better
+              decisions regarding revenue, customer <br /> experience, and
+              overall efficiency.
             </p>
+
+            <Stack
+              direction={useMediaQuery("(min-width: 700px)") ? "row" : "column"}
+              spacing={6}
+              sx={{
+                width: "100%",
+                alignItems: useMediaQuery("(min-width: 700px)")
+                  ? "flex-start"
+                  : "center",
+                marginTop: "2.5rem",
+              }}
+            >
+              <StatsField value={"10k+"} name={"companies"} />
+              <StatsField value={"314"} name={"templates"} />
+              <StatsField value={"12M+"} name={"queries"} />
+            </Stack>
           </Stack>
           <div
             style={{
