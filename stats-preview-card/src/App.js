@@ -109,11 +109,13 @@ const App = () => {
 
             <Stack
               spacing={6}
+              direction={useMediaQuery("(min-width: 700px)") ? "row" : "column"}
               sx={{
+                height: "20%",
+                width: "100%",
                 flexDirection: useMediaQuery("(min-width: 700px)")
                   ? "row"
                   : "column",
-                width: "100%",
                 alignItems: useMediaQuery("(min-width: 700px)")
                   ? "flex-start"
                   : "center",
