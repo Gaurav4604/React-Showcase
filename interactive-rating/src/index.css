@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Overpass", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover,
+a:visited {
+  text-decoration: none;
+}
