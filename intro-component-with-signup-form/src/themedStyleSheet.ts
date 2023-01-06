@@ -61,6 +61,41 @@ export default createTheme({
     } as TypographyOptions;
   },
   components: {
+    MuiTextField: {
+      variants: [
+        {
+          props: {
+            id: "form-field",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              borderColor: theme.palette.custom.formInActiveBorder,
+              "& fieldset, &": {
+                transition: "all 0.5s ease",
+              },
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: theme.palette.custom.text,
+                "& fieldset, &:hover fieldset": {
+                  borderColor: theme.palette.custom.formInActiveBorder,
+                  borderRadius: "0.25rem",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: theme.palette.custom.banner,
+                  borderRadius: "0.25rem",
+                },
+                "& input": {
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: "600",
+                  "&:placeholder": {
+                    color: "black",
+                  },
+                },
+              },
+            });
+          },
+        },
+      ],
+    },
     MuiContainer: {
       variants: [
         {
