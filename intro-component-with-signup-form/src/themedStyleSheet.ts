@@ -1,25 +1,34 @@
 import { createTheme } from "@mui/material";
+import "@fontsource/poppins/100.css";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/900.css";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 //? module augmentation
 interface customPaletteColorOptions {
   background?: string;
-  text?: string;
-  banner?: string;
+  captionTextAndFormBackground?: string;
+  bannerAndFormActiveBorder?: string;
   button?: string;
   formBackground?: string;
+  formText?: string;
   formInActiveBorder?: string;
-  formActiveBorder?: string;
 }
 
 interface customPaletteColor {
   background: string;
-  text: string;
-  banner: string;
+  captionTextAndFormBackground: string;
+  bannerAndFormActiveBorder: string;
   button: string;
   formBackground: string;
+  formText: string;
   formInActiveBorder: string;
-  formActiveBorder: string;
 }
 
 declare module "@mui/material" {
@@ -35,28 +44,28 @@ export default createTheme({
   palette: {
     custom: {
       background: "hsl(0, 100%, 74%)",
-      text: "hsl(100, 100%, 100%)",
-      banner: "hsl(248, 32%, 49%)",
+      captionTextAndFormBackground: "hsl(100, 100%, 100%)",
+      bannerAndFormActiveBorder: "hsl(248, 32%, 49%)",
       button: "hsl(154, 59%, 51%)",
       formBackground: "hsl(100, 100%, 100%)",
-      formActiveBorder: "hsl(249, 10%, 26%)",
+      formText: "hsl(249, 10%, 26%)",
       formInActiveBorder: "hsl(246, 25%, 77%)",
     },
   },
   typography(palette) {
     return {
       allVariants: {
-        fontFamily: "Poppins, sans-serif",
+        fontFamily: "Poppins",
       },
       h1: {
-        fontWeight: "900",
+        fontWeight: "600",
         fontSize: "4rem",
-        color: palette.custom.text,
+        color: palette.custom.captionTextAndFormBackground,
       },
       subtitle1: {
         fontWeight: "300",
         fontSize: "1rem",
-        color: palette.custom.text,
+        color: palette.custom.captionTextAndFormBackground,
       },
     } as TypographyOptions;
   },
@@ -71,23 +80,28 @@ export default createTheme({
             return theme.unstable_sx({
               borderColor: theme.palette.custom.formInActiveBorder,
               "& fieldset, &": {
-                transition: "all 0.5s ease",
+                transition: "all 0.1s ease",
               },
               "& .MuiOutlinedInput-root": {
-                backgroundColor: theme.palette.custom.text,
+                backgroundColor:
+                  theme.palette.custom.captionTextAndFormBackground,
                 "& fieldset, &:hover fieldset": {
                   borderColor: theme.palette.custom.formInActiveBorder,
                   borderRadius: "0.25rem",
+                  borderWidth: "0.1rem",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.custom.banner,
-                  borderRadius: "0.25rem",
+                  borderWidth: "0.1rem",
+                  borderColor: theme.palette.custom.bannerAndFormActiveBorder,
                 },
                 "& input": {
-                  fontFamily: "Poppins, sans-serif",
+                  fontFamily: "Poppins",
+                  caretColor: theme.palette.custom.bannerAndFormActiveBorder,
                   fontWeight: "600",
-                  "&:placeholder": {
-                    color: "black",
+                  opacity: 0.9,
+                  color: theme.palette.custom.formText,
+                  "&::placeholder": {
+                    opacity: 0.8,
                   },
                 },
               },
