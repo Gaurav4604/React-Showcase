@@ -3,6 +3,7 @@ import "@fontsource/poppins/100.css";
 import "@fontsource/poppins/200.css";
 import "@fontsource/poppins/300.css";
 import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/400-italic.css";
 import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
@@ -12,7 +13,7 @@ import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 //? module augmentation
 interface customPaletteColorOptions {
-  background?: string;
+  backgroundAndErrorText?: string;
   captionTextAndFormBackground?: string;
   bannerAndFormActiveBorder?: string;
   button?: string;
@@ -22,7 +23,7 @@ interface customPaletteColorOptions {
 }
 
 interface customPaletteColor {
-  background: string;
+  backgroundAndErrorText: string;
   captionTextAndFormBackground: string;
   bannerAndFormActiveBorder: string;
   button: string;
@@ -43,7 +44,7 @@ declare module "@mui/material" {
 export default createTheme({
   palette: {
     custom: {
-      background: "hsl(0, 100%, 74%)",
+      backgroundAndErrorText: "hsl(0, 100%, 74%)",
       captionTextAndFormBackground: "hsl(100, 100%, 100%)",
       bannerAndFormActiveBorder: "hsl(248, 32%, 49%)",
       button: "hsl(154, 59%, 51%)",
@@ -79,6 +80,15 @@ export default createTheme({
           style: ({ theme }) => {
             return theme.unstable_sx({
               borderColor: theme.palette.custom.formInActiveBorder,
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: theme.palette.custom.backgroundAndErrorText,
+                fontFamily: "Poppins",
+                fontWeight: "400",
+                fontStyle: "italic",
+                textAlign: "end",
+                marginRight: 0,
+                fontSize: "0.6rem",
+              },
               "& fieldset, &": {
                 transition: "all 0.1s ease",
               },
@@ -94,6 +104,15 @@ export default createTheme({
                   borderWidth: "0.1rem",
                   borderColor: theme.palette.custom.bannerAndFormActiveBorder,
                 },
+                "&.Mui-error fieldset, &.Mui-error:hover fieldset": {
+                  borderColor: theme.palette.custom.backgroundAndErrorText,
+                  borderRadius: "0.25rem",
+                  borderWidth: "0.1rem",
+                },
+                "&.Mui-focused.Mui-error fieldset": {
+                  borderWidth: "0.1rem",
+                  borderColor: theme.palette.custom.backgroundAndErrorText,
+                },
                 "& input": {
                   fontFamily: "Poppins",
                   caretColor: theme.palette.custom.bannerAndFormActiveBorder,
@@ -104,6 +123,12 @@ export default createTheme({
                     opacity: 0.8,
                   },
                 },
+                "&.Mui-error input": {
+                  color: theme.palette.custom.backgroundAndErrorText,
+                  "&::placeholder": {
+                    color: theme.palette.custom.formText,
+                  },
+                },
               },
             });
           },
@@ -111,6 +136,16 @@ export default createTheme({
       ],
     },
     MuiContainer: {
+      styleOverrides: {
+        root: ({ theme }) => {
+          return theme.unstable_sx({
+            [theme.breakpoints.up("sm")]: {
+              paddingLeft: 0,
+              paddingRight: 0,
+            },
+          });
+        },
+      },
       variants: [
         {
           props: {
@@ -125,12 +160,23 @@ export default createTheme({
                 maxWidth: "100vw",
                 backgroundImage: `url("./bg-intro-desktop.png")`,
               },
-              backgroundColor: theme.palette.custom.background,
+              backgroundColor: theme.palette.custom.backgroundAndErrorText,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               width: "100vw",
               height: "100vh",
+            });
+          },
+        },
+        {
+          props: {
+            id: "text-field-container",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              width: "unset",
+              position: "relative",
             });
           },
         },
