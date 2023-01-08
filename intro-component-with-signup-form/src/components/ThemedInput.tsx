@@ -1,37 +1,61 @@
 import { Container, SvgIcon, TextField } from "@mui/material";
-//@ts-ignore
 import { ReactComponent as ErrorIcon } from "./icon-error.svg";
-import { useEffect, useRef, useState } from "react";
-type Props = {};
+import React, { useEffect, useRef, useState } from "react";
+type Props = {
+  placeholder: string;
+  helperText: string;
+  type: React.HTMLInputTypeAttribute;
+  validation: (input: string) => boolean;
+};
 
-const ThemedInput = (props: Props) => {
+const ThemedInput: React.FC<Props> = ({
+  placeholder,
+  helperText,
+  type,
+  validation,
+}) => {
   const ref = useRef<HTMLInputElement>(null);
   const [positionOffset, setPositionOffset] = useState(0);
+  const [input, setInput] = useState("");
+  const [touched, setTouched] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (ref.current)
       setPositionOffset(ref.current.getBoundingClientRect().height / 2);
   }, []);
 
+  useEffect(() => {
+    setError(validation(input));
+  }, [input, validation, touched]);
+
   return (
-    <Container id="text-field-container">
+    <Container itemID="text-field-container">
       <SvgIcon
         component={ErrorIcon}
+        id="form-error-icon"
         fontSize="small"
         sx={{
-          position: "absolute",
-          right: "0.7rem",
           top: positionOffset,
-          zIndex: 1,
-          transform: "translate(-50%, -50%)",
+          opacity: touched && error ? 1 : 0,
         }}
       />
       <TextField
         inputRef={ref}
-        placeholder="First Name"
-        id="form-field"
-        error
-        helperText="Incorrect entry."
+        autoComplete="off"
+        onBlur={() => {
+          setTouched(true);
+        }}
+        value={input}
+        onChange={(e) => {
+          setInput(e.target.value);
+          if (!touched) setTouched(true);
+        }}
+        placeholder={placeholder}
+        itemID="form-field"
+        error={touched && error}
+        helperText={error && touched ? helperText : " "}
+        type={type}
       />
     </Container>
   );

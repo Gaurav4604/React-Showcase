@@ -50,7 +50,7 @@ export default createTheme({
       button: "hsl(154, 59%, 51%)",
       formBackground: "hsl(100, 100%, 100%)",
       formText: "hsl(249, 10%, 26%)",
-      formInActiveBorder: "hsl(246, 25%, 77%)",
+      formInActiveBorder: "rgba(185, 182, 211, 0.7)",
     },
   },
   typography(palette) {
@@ -62,11 +62,26 @@ export default createTheme({
         fontWeight: "600",
         fontSize: "4rem",
         color: palette.custom.captionTextAndFormBackground,
+        marginBottom: "2rem",
       },
       subtitle1: {
         fontWeight: "300",
         fontSize: "1rem",
         color: palette.custom.captionTextAndFormBackground,
+      },
+      overline: {
+        fontWeight: "600",
+        fontSize: "0.6rem",
+        textTransform: "none",
+        color: palette.custom.formInActiveBorder,
+      },
+      subtitle2: {
+        display: "inline-block",
+        fontSize: "0.6rem",
+        fontWeight: "700",
+        textTransform: "none",
+        cursor: "pointer",
+        color: palette.custom.backgroundAndErrorText,
       },
     } as TypographyOptions;
   },
@@ -75,20 +90,26 @@ export default createTheme({
       variants: [
         {
           props: {
-            id: "form-field",
+            itemID: "form-field",
           },
           style: ({ theme }) => {
             return theme.unstable_sx({
               borderColor: theme.palette.custom.formInActiveBorder,
-              "& .MuiFormHelperText-root.Mui-error": {
-                color: theme.palette.custom.backgroundAndErrorText,
-                fontFamily: "Poppins",
-                fontWeight: "400",
-                fontStyle: "italic",
-                textAlign: "end",
-                marginRight: 0,
-                fontSize: "0.6rem",
+              height: "3.5rem",
+              marginBottom: "1rem",
+              "&.MuiFormControl-root": {
+                width: "100%",
               },
+              "& .MuiFormHelperText-root, & .MuiFormHelperText-root.Mui-error":
+                {
+                  color: theme.palette.custom.backgroundAndErrorText,
+                  fontFamily: "Poppins",
+                  fontWeight: "400",
+                  fontStyle: "italic",
+                  textAlign: "end",
+                  marginRight: "0.5rem",
+                  fontSize: "0.6rem",
+                },
               "& fieldset, &": {
                 transition: "all 0.1s ease",
               },
@@ -114,9 +135,11 @@ export default createTheme({
                   borderColor: theme.palette.custom.backgroundAndErrorText,
                 },
                 "& input": {
+                  width: "100%",
                   fontFamily: "Poppins",
                   caretColor: theme.palette.custom.bannerAndFormActiveBorder,
                   fontWeight: "600",
+                  fontSize: "0.85rem",
                   opacity: 0.9,
                   color: theme.palette.custom.formText,
                   "&::placeholder": {
@@ -129,6 +152,125 @@ export default createTheme({
                     color: theme.palette.custom.formText,
                   },
                 },
+              },
+            });
+          },
+        },
+      ],
+    },
+    MuiSvgIcon: {
+      variants: [
+        {
+          props: {
+            id: "form-error-icon",
+          },
+          style: {
+            position: "absolute",
+            transition: "opacity 0.5s ease",
+            right: "0.7rem",
+            zIndex: 1,
+            transform: "translate(-50%, -50%)",
+          },
+        },
+      ],
+    },
+    MuiStack: {
+      variants: [
+        {
+          props: {
+            id: "form-stack",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              width: "60%",
+              height: "50%",
+              borderRadius: "0.5rem",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              padding: "2rem",
+              boxShadow: "0px 8px rgba(0, 0, 0, 0.25)",
+              bgcolor: theme.palette.custom.captionTextAndFormBackground,
+            });
+          },
+        },
+        {
+          props: {
+            id: "form-wrapping-stack",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              width: "50%",
+              height: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+            });
+          },
+        },
+        {
+          props: {
+            id: "typography-stack",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              width: "50%",
+              height: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+            });
+          },
+        },
+      ],
+    },
+    MuiButton: {
+      variants: [
+        {
+          props: {
+            id: "form-button",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              width: "100%",
+              height: "3.5rem",
+              fontWeight: "600",
+              color: theme.palette.custom.captionTextAndFormBackground,
+              bgcolor: theme.palette.custom.button,
+              "&:hover": {
+                color: theme.palette.custom.captionTextAndFormBackground,
+                bgcolor: theme.palette.custom.button,
+                boxShadow: "0px -4px rgba(0, 0, 0, 0.25) inset",
+              },
+              boxShadow: "0px -4px rgba(0, 0, 0, 0.25) inset",
+            });
+          },
+        },
+        {
+          props: {
+            id: "try-it-button",
+          },
+          style: ({ theme }) => {
+            return theme.unstable_sx({
+              width: "60%",
+              height: "3.5rem",
+              fontWeight: "600",
+              marginBottom: "1.5rem",
+              color: theme.palette.custom.captionTextAndFormBackground,
+              bgcolor: theme.palette.custom.bannerAndFormActiveBorder,
+              "&:hover": {
+                color: theme.palette.custom.captionTextAndFormBackground,
+                bgcolor: theme.palette.custom.bannerAndFormActiveBorder,
+                boxShadow: "0px 4px rgba(0, 0, 0, 0.25)",
+              },
+              boxShadow: "0px 4px rgba(0, 0, 0, 0.25)",
+              "& .MuiTypography-root": {
+                fontSize: "0.9rem",
+              },
+              "& .MuiTypography-root#try-it": {
+                textTransform: "none",
+                fontWeight: "600",
+              },
+              "& .MuiTypography-root#pricing": {
+                textTransform: "none",
+                fontWeight: "300",
               },
             });
           },
@@ -163,7 +305,7 @@ export default createTheme({
               backgroundColor: theme.palette.custom.backgroundAndErrorText,
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "space-evenly",
               width: "100vw",
               height: "100vh",
             });
@@ -171,11 +313,11 @@ export default createTheme({
         },
         {
           props: {
-            id: "text-field-container",
+            itemID: "text-field-container",
           },
           style: ({ theme }) => {
             return theme.unstable_sx({
-              width: "unset",
+              width: "100%",
               position: "relative",
             });
           },

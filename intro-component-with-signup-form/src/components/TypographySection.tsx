@@ -2,7 +2,7 @@ import { Stack, Typography } from "@mui/material";
 
 const TypographySection = () => {
   return (
-    <Stack>
+    <Stack id="typography-stack">
       <Typography variant="h1">
         Learn to code by
         <br /> watching others
