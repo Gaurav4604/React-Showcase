@@ -17,8 +17,7 @@ const FormSection = (props: Props) => {
     <Stack id="form-wrapping-stack">
       <Button id="try-it-button" variant="contained" sx={{ color: "white" }}>
         <span>
-          <b>Try it free 7 days</b> then
-          {(mediaMatcher && <br />) || <></>}
+          <b>Try it free 7 days</b> then {(mediaMatcher && <br />) || <></>}
           $20/mo. thereafter
         </span>
       </Button>
