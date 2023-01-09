@@ -1,15 +1,26 @@
-import { Button, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import React from "react";
 import ThemedInput from "./ThemedInput";
 
 type Props = {};
 
 const FormSection = (props: Props) => {
+  const theme = useTheme();
+  const mediaMatcher = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Stack id="form-wrapping-stack">
       <Button id="try-it-button" variant="contained" sx={{ color: "white" }}>
-        <Typography id="try-it">Try it free 7 days</Typography>&nbsp;
-        <Typography id="pricing">then $20/mo. thereafter</Typography>
+        <span>
+          <b>Try it free 7 days</b> then
+          {(mediaMatcher && <br />) || <></>}
+          $20/mo. thereafter
+        </span>
       </Button>
       <Stack id="form-stack">
         <ThemedInput
@@ -43,8 +54,8 @@ const FormSection = (props: Props) => {
           claim your free trial
         </Button>
         <Typography variant="overline">
-          By clicking this button, you are agreeing to our{" "}
-          <Typography variant="subtitle2">Terms and Services</Typography>
+          <span>By clicking this button, you are agreeing to our </span>
+          <span>Terms and Services</span>
         </Typography>
       </Stack>
     </Stack>
