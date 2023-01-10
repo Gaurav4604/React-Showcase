@@ -19,6 +19,7 @@ interface customPaletteOptions {
   veryDarkBlue?: string;
   cream?: string;
   darkCyan?: string;
+  darkerCyan?: string;
 }
 
 interface customPalette {
@@ -27,12 +28,13 @@ interface customPalette {
   veryDarkBlue: string;
   cream: string;
   darkCyan: string;
+  darkerCyan: string;
 }
 declare module "@mui/material/styles" {
   interface TypographyVariants {
     button?: React.CSSProperties;
-    productName?: React.CSSProperties;
-    title?: React.CSSProperties;
+    productType?: React.CSSProperties;
+    h1?: React.CSSProperties;
     body?: React.CSSProperties;
     price?: React.CSSProperties;
     priceDrop?: React.CSSProperties;
@@ -41,8 +43,8 @@ declare module "@mui/material/styles" {
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     button?: React.CSSProperties;
-    productName?: React.CSSProperties;
-    title?: React.CSSProperties;
+    productType?: React.CSSProperties;
+    h1?: React.CSSProperties;
     body?: React.CSSProperties;
     price?: React.CSSProperties;
     priceDrop?: React.CSSProperties;
@@ -51,8 +53,8 @@ declare module "@mui/material/styles" {
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     button: true;
-    productName: true;
-    title: true;
+    productType: true;
+    h1: true;
     body: true;
     price: true;
     priceDrop: true;
@@ -60,7 +62,7 @@ declare module "@mui/material/Typography" {
 }
 declare module "@mui/material" {
   interface Palette {
-    custom?: customPalette;
+    custom: customPalette;
   }
   interface PaletteOptions {
     custom?: customPaletteOptions;
