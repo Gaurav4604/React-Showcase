@@ -29,6 +29,24 @@ const theme = createTheme({
       fontFamily: "Kumbh Sans",
       color: palette.custom.darkGrayishBlue,
       fontSize: "1.1rem",
+      marginBottom: "1.5rem",
+    },
+    stats: {
+      fontFamily: "Kumbh Sans",
+      fontWeight: "700",
+      color: palette.custom.veryDarkDesaturatedBlue,
+      fontSize: "1.2rem",
+      textAlign: "center",
+      textTransform: "uppercase",
+    },
+    statsLabel: {
+      fontFamily: "Kumbh Sans",
+      fontWeight: "400",
+      color: palette.custom.darkGray,
+      textTransform: "capitalize",
+      fontSize: "0.75rem",
+      textAlign: "center",
+      letterSpacing: "0.1rem",
     },
   }),
   components: {
@@ -182,7 +200,6 @@ const theme = createTheme({
               },
             }),
         },
-
         {
           props: {
             id: "profile-text",
@@ -193,6 +210,46 @@ const theme = createTheme({
               justifyContent: "center",
               alignItems: "center",
               marginBottom: "0.5rem",
+            }),
+        },
+        {
+          props: {
+            id: "stats-stack",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              width: "100%",
+              height: "20%",
+              px: "2rem",
+              py: "0.8rem",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }),
+        },
+        {
+          props: {
+            id: "stats-component",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }),
+        },
+      ],
+    },
+    MuiDivider: {
+      variants: [
+        {
+          props: {
+            id: "profile-divider",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              bgcolor: theme.palette.custom.darkGray,
+              opacity: 0.4,
+              width: "100%",
             }),
         },
       ],

@@ -1,8 +1,9 @@
-import { Avatar, Container, Stack, Typography } from "@mui/material";
+import { Avatar, Container, Divider, Stack, Typography } from "@mui/material";
 import BgTop from "./bg-pattern-top.svg";
 import BgBottom from "./bg-pattern-bottom.svg";
 import BgPatternCard from "./bg-pattern-card.svg";
-import avatarPath from "./image-victor.jpg";
+import avatarPath from "./profile-image.jpeg";
+import StatsComponent from "./StatsComponent";
 
 function App() {
   return (
@@ -17,13 +18,19 @@ function App() {
         <Stack id="card">
           <Stack id="profile">
             <img src={BgPatternCard} alt="background card profile" />
-            <Avatar alt="Victor" src={avatarPath} />
+            <Avatar alt="Gaurav" src={avatarPath} />
             <Stack id="profile-text">
-              <Typography variant="name">Victor Crest</Typography>
+              <Typography variant="name">Gaurav Singh</Typography>
               &nbsp; &nbsp;
-              <Typography variant="age">26</Typography>
+              <Typography variant="age">21</Typography>
             </Stack>
-            <Typography variant="location">London</Typography>
+            <Typography variant="location">India</Typography>
+            <Divider id="profile-divider" />
+          </Stack>
+          <Stack id="stats-stack">
+            <StatsComponent stats="80k" statsLabel="Followers" />
+            <StatsComponent stats="803k" statsLabel="Likes" />
+            <StatsComponent stats="1.4k" statsLabel="Photos" />
           </Stack>
         </Stack>
       </Stack>
