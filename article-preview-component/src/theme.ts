@@ -205,10 +205,14 @@ const theme = createTheme({
                   opacity: 1,
                   bgcolor: theme.palette.custom.veryDarkGrayishBlue,
                 },
+                "& .MuiIconButton": {
+                  height: "2.5rem",
+                  width: "2.5rem",
+                  marginLeft: "1rem",
+                },
                 "& .MuiSvgIcon-root": {
                   height: "2rem",
                   width: "2rem",
-                  marginLeft: "1rem",
                 },
               },
             }),
