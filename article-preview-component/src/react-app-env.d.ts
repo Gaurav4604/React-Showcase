@@ -15,6 +15,7 @@ declare module "*.svg" {
 }
 
 interface customPaletteOptions {
+  white: string;
   lightGrayishBlue: string;
   desaturatedDarkBlue: string;
   veryDarkGrayishBlue: string;
@@ -22,6 +23,7 @@ interface customPaletteOptions {
 }
 
 interface customPalette {
+  white: string;
   lightGrayishBlue: string;
   desaturatedDarkBlue: string;
   veryDarkGrayishBlue: string;
