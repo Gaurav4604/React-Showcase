@@ -6,6 +6,7 @@ interface customPaletteOptions {
   grayishBlue: string;
   brightYellow: string;
   cyan: string;
+  darkCyan: string;
   white: string;
 }
 
@@ -14,6 +15,7 @@ interface customPalette {
   grayishBlue: string;
   brightYellow: string;
   cyan: string;
+  darkCyan: string;
   white: string;
 }
 
