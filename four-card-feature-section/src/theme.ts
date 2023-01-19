@@ -61,7 +61,7 @@ const theme = createTheme({
         },
         {
           props: {
-            id: "grid-card",
+            className: "grid-card",
           },
           style: ({ theme }) =>
             theme.unstable_sx({
@@ -95,7 +95,7 @@ const theme = createTheme({
         },
         {
           props: {
-            id: "grid-card-typography",
+            className: "grid-card-typography",
           },
           style: ({ theme }) =>
             theme.unstable_sx({

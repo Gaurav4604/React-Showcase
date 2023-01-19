@@ -11,10 +11,10 @@ type Props = {
 const GridCard = (props: Props) => {
   return (
     <Stack
-      id="grid-card"
+      className="grid-card"
       sx={{ gridRow: props.gridRow, gridColumn: props.gridColumn }}
     >
-      <Stack id="grid-card-typography">
+      <Stack className="grid-card-typography">
         <Divider sx={{ bgcolor: props.dividerColor }} />
         <Typography variant="cardTitle">{props.cardTitle}</Typography>
         <Typography variant="cardSubtitle">{props.cardSubtitle}</Typography>
