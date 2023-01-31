@@ -7,7 +7,10 @@ import {
 } from "@mui/material";
 import "@fontsource/league-spartan/700.css";
 import { StarRounded } from "@mui/icons-material";
-type Props = {};
+type Props = {
+  rating: number;
+  comment: string;
+};
 
 const bannerTheme = createTheme({
   palette: {
@@ -29,12 +32,20 @@ const bannerTheme = createTheme({
             theme.unstable_sx({
               bgcolor: theme.palette.custom?.lightGrayishMagenta,
               height: "3.5rem",
-              width: "35vw",
-              borderRadius: "0.2rem",
+              width: "30rem",
+              maxWidth: "90vw",
+              borderRadius: "0.4rem",
               px: "2.5rem",
               alignItems: "center",
               justifyContent: "space-between",
               flexDirection: "row",
+              [theme.breakpoints.down("md")]: {
+                flexDirection: "column",
+                justifyContent: "space-between",
+                height: "4rem",
+                px: "2rem",
+                py: "0.5rem",
+              },
             }),
         },
         {
@@ -43,11 +54,17 @@ const bannerTheme = createTheme({
           },
           style: ({ theme }) =>
             theme.unstable_sx({
-              width: "35%",
+              width: "30%",
               height: "100%",
               alignItems: "center",
               justifyContent: "space-evenly",
               flexDirection: "row",
+              [theme.breakpoints.down("md")]: {
+                width: "50%",
+              },
+              [theme.breakpoints.down("sm")]: {
+                width: "40%",
+              },
             }),
         },
         {
@@ -60,11 +77,23 @@ const bannerTheme = createTheme({
               height: "100%",
               alignItems: "center",
               justifyContent: "center",
+              [theme.breakpoints.down("md")]: {
+                width: "80%",
+                textAlign: "center",
+              },
             }),
         },
       ],
     },
     MuiIcon: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            [theme.breakpoints.down("sm")]: {
+              fontSize: "1.2rem",
+            },
+          }),
+      },
       variants: [
         {
           props: {
@@ -103,6 +132,9 @@ const bannerTheme = createTheme({
               fontSize: "1.1rem",
               width: "100%",
               color: theme.palette.custom?.veryDarkMagenta,
+              [theme.breakpoints.down("sm")]: {
+                fontSize: "1rem",
+              },
             }),
         },
       ],
@@ -128,9 +160,9 @@ const RatingBanner = (props: Props) => {
   return (
     <ThemeProvider theme={bannerTheme}>
       <Stack className="rating-banner">
-        <Stack className="rating">{generateStars(5)}</Stack>
+        <Stack className="rating">{generateStars(props.rating)}</Stack>
         <Stack className="rating-typography">
-          <Typography variant="rating">Rated 5 Stars in Reviews</Typography>
+          <Typography variant="rating">{props.comment}</Typography>
         </Stack>
       </Stack>
     </ThemeProvider>

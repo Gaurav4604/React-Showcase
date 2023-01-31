@@ -30,14 +30,20 @@ declare module "@mui/material/styles" {
   }
   interface TypographyVariants {
     rating: React.CSSProperties;
+    profileName: React.CSSProperties;
+    profileVerified: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     rating?: React.CSSProperties;
+    profileName?: React.CSSProperties;
+    profileVerified?: React.CSSProperties;
   }
 }
 
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     rating: true;
+    profileName: true;
+    profileVerified: true;
   }
 }
