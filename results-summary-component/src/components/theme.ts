@@ -47,6 +47,7 @@ const theme = createTheme({
                 "linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%))",
               pt: "3rem",
               pb: "3rem",
+
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -103,21 +104,85 @@ const theme = createTheme({
               gridTemplate: `
                 "a" 1fr
                 "a" 1fr
+                "a" 1fr
                 "b" 1fr
                 "b" 1fr
                 "b" 1fr
-            `,
+                "b" 1fr`,
               "& > section.result": {
                 borderTopLeftRadius: 0,
                 borderTopRightRadius: 0,
                 gridArea: "a",
+                pt: "2.5rem",
+                pb: "2.5rem",
+                "& .score": {
+                  height: "8rem",
+                  width: "8rem",
+
+                  "& .score-text": {
+                    "&.value": {
+                      fontSize: "2.5rem",
+                      mt: "0.5rem",
+                    },
+                    "&.total": {
+                      fontSize: "0.9rem",
+                    },
+                  },
+                },
+                "& .message": {
+                  fontSize: "1rem",
+                  width: "60%",
+                },
+                "& .greeting": {
+                  fontSize: "2rem",
+                },
               },
               "& > section.summary": {
                 gridArea: "b",
               },
             },
-            [theme.breakpoints.between("xl", "xs")]: {
-              p: 0,
+            [theme.breakpoints.down("sm")]: {
+              "& > section.result": {
+                pt: "2rem",
+                pb: "2rem",
+                "& .message": {
+                  fontSize: "1rem",
+                  width: "70%",
+                  lineHeight: "1rem",
+                },
+                "& .greeting": {
+                  fontSize: "1.5rem",
+                },
+              },
+            },
+            // for iphone SE and lower
+            [theme.breakpoints.down(376)]: {
+              "& > section.result": {
+                pt: "1.5rem",
+                pb: "1.5rem",
+                "& .score": {
+                  height: "6rem",
+                  width: "6rem",
+
+                  "& .score-text": {
+                    "&.value": {
+                      fontSize: "2.2rem",
+                      mt: "0.5rem",
+                    },
+                    "&.total": {
+                      fontSize: "0.8rem",
+                    },
+                  },
+                },
+                "& .message": {
+                  fontSize: "0.9rem",
+                  width: "70%",
+                  lineHeight: "1rem",
+                },
+                "& .greeting": {
+                  fontSize: "1.2rem",
+                },
+              },
             },
           }),
       },

@@ -2,16 +2,6 @@ import { Card, CardActionArea, CardContent, Container } from "@mui/material";
 
 function App() {
   return (
-    // <div
-    //   className="App"
-    //   style={{
-    //     background: "linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%))",
-    //     height: "100vh",
-    //     width: "100vw",
-    //   }}
-    // >
-
-    // </div>
     <Container id="root-container">
       <Card>
         <CardContent>
@@ -29,7 +19,6 @@ function App() {
           </section>
           <section className="summary">{/* <p>Hello there</p> */}</section>
         </CardContent>
-        {/* <CardActionArea></CardActionArea> */}
       </Card>
     </Container>
   );
