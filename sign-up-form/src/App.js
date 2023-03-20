@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Stack, useMediaQuery } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import TextComponent from "./components/TextComponent";
 import Background from "./Background";
 
@@ -7,9 +7,11 @@ function App() {
   return (
     <Background>
       <Stack
-        direction={
-          useMediaQuery("@media (max-width: 600px)") ? "column" : "row"
-        }
+        direction={{
+          xs: "column",
+          sm: "column",
+          md: "row",
+        }}
         alignItems="center"
         justifyContent="center"
         sx={{
