@@ -40,18 +40,17 @@ const theme = createTheme({
             },
             "& > section": {
               maxWidth: "100%",
+              pt: "3rem",
+              pb: "3rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexDirection: "column",
             },
             "& > section.result": {
               borderRadius: "2rem",
               background:
                 "linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%))",
-              pt: "3rem",
-              pb: "3rem",
-
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexDirection: "column",
               "& *": {
                 textAlign: "center",
               },
@@ -99,7 +98,15 @@ const theme = createTheme({
                 },
               },
             },
-            "& > section.summary": {},
+            "& > section.summary": {
+              px: "1.5rem",
+              "& > h2": {
+                width: "95%",
+                fontSize: "1.5rem",
+                fontWeight: "700",
+                fontFamily: "HankenGrotesk",
+              },
+            },
             [theme.breakpoints.down("md")]: {
               gridTemplate: `
                 "a" 1fr
@@ -109,12 +116,15 @@ const theme = createTheme({
                 "b" 1fr
                 "b" 1fr
                 "b" 1fr`,
+              "& > section": {
+                pt: "2.5rem",
+                pb: "2.5rem",
+              },
               "& > section.result": {
                 borderTopLeftRadius: 0,
                 borderTopRightRadius: 0,
                 gridArea: "a",
-                pt: "2.5rem",
-                pb: "2.5rem",
+
                 "& .score": {
                   height: "8rem",
                   width: "8rem",
@@ -142,9 +152,11 @@ const theme = createTheme({
               },
             },
             [theme.breakpoints.down("sm")]: {
-              "& > section.result": {
+              "& > .section": {
                 pt: "2rem",
                 pb: "2rem",
+              },
+              "& > section.result": {
                 "& .message": {
                   fontSize: "1rem",
                   width: "70%",
@@ -157,9 +169,11 @@ const theme = createTheme({
             },
             // for iphone SE and lower
             [theme.breakpoints.down(376)]: {
-              "& > section.result": {
+              "& > .section": {
                 pt: "1.5rem",
                 pb: "1.5rem",
+              },
+              "& > section.result": {
                 "& .score": {
                   height: "6rem",
                   width: "6rem",
@@ -208,6 +222,102 @@ const theme = createTheme({
           },
         },
       ],
+    },
+    MuiAlert: {
+      styleOverrides: {
+        icon: ({ theme }) =>
+          theme.unstable_sx({
+            alignSelf: "center",
+            m: 0,
+          }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            width: "90%",
+            height: "2.5rem",
+            borderRadius: "0.5rem",
+            "& .MuiAlert-message": {
+              width: "90%",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              px: "0.5rem",
+              "& .MuiAlertTitle-root, & p": {
+                m: 0,
+                fontSize: "1rem",
+                fontWeight: "700",
+                fontFamily: "HankenGrotesk",
+              },
+              "& p": {
+                color: "hsl(224, 30%, 27%)",
+                fontSize: "1rem",
+              },
+            },
+          }),
+      },
+      variants: [
+        {
+          props: {
+            className: "reaction",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              bgcolor: "hsla(0, 100%, 67%, 0.1)",
+              color: "hsla(0, 100%, 67%, 0.8)",
+            }),
+        },
+        {
+          props: {
+            className: "memory",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              bgcolor: "hsla(39, 100%, 56%, 0.1)",
+              color: "hsla(39, 100%, 56%, 0.8)",
+            }),
+        },
+        {
+          props: {
+            className: "verbal",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              bgcolor: "hsla(66, 100%, 37%, 0.1)",
+              color: "hsla(66, 100%, 37%, 0.8)",
+            }),
+        },
+        {
+          props: {
+            className: "visual",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              bgcolor: "hsla(234, 85%, 45%, 0.1)",
+              color: "hsla(234, 85%, 45%, 0.8)",
+            }),
+        },
+      ],
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            width: "100%",
+            height: "3rem",
+            m: 0,
+            textTransform: "none",
+            fontSize: "1rem",
+            fontWeight: "500",
+            fontFamily: "HankenGrotesk",
+            background: "hsl(224, 30%, 27%)",
+            borderRadius: "2rem",
+            "&:hover, &:active": {
+              background:
+                "linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%))",
+            },
+            color: "white",
+          }),
+      },
     },
   },
 });
