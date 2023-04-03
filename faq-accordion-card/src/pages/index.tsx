@@ -1,4 +1,5 @@
 import FAQ from "@/components/FAQ";
+import FAQIcon from "@/components/FAQIcon";
 import { FAQDataSchema, fetchFAQdata } from "@/data/dataFetchUtil";
 import { Container, Typography } from "@mui/material";
 import { GetStaticProps, InferGetServerSidePropsType } from "next";
@@ -13,8 +14,10 @@ const Home = ({ faq }: InferGetServerSidePropsType<typeof getStaticProps>) => {
         <title>Frontend Mentor | FAQ Accordion Card</title>
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-      <Container component={"main"} disableGutters>
-        <FAQ faqList={faq} />
+      <Container component={"main"} disableGutters id="main">
+        <Container id="card" disableGutters>
+          <FAQIcon />
+        </Container>
       </Container>
     </>
   );
