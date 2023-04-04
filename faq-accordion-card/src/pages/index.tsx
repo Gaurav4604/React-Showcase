@@ -17,6 +17,7 @@ const Home = ({ faq }: InferGetServerSidePropsType<typeof getStaticProps>) => {
       <Container component={"main"} disableGutters id="main">
         <Container id="card" disableGutters>
           <FAQIcon />
+          <FAQ faqList={faq} />
         </Container>
       </Container>
     </>

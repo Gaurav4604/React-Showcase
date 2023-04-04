@@ -6,16 +6,20 @@ type Props = {};
 
 const FAQIcon = (props: Props) => {
   return (
-    <Container id="faq-icon" disableGutters>
-      <Container id="non-overflow" disableGutters>
+    <Container id="faq-icon" disableGutters component={"section"}>
+      <Container
+        id="non-overflow"
+        className={"faq-icon-wrapper"}
+        disableGutters
+      >
         <Image
           src={"illustration-woman-online-desktop.svg"}
           alt={""}
           width={500}
           height={500}
           id="woman"
+          priority
         />
-
         <Image
           src={"bg-pattern-desktop.svg"}
           alt={""}
@@ -24,7 +28,7 @@ const FAQIcon = (props: Props) => {
           height={500}
         />
       </Container>
-      <Container id="overflow" disableGutters>
+      <Container id="overflow" className={"faq-icon-wrapper"} disableGutters>
         <Image
           src={"illustration-box-desktop.svg"}
           width={500}
