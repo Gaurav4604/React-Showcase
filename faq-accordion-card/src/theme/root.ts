@@ -240,15 +240,6 @@ const rootTheme = createTheme({
             [theme.breakpoints.down("md")]: {
               width: "100%",
             },
-            "&.Mui-expanded": {
-              ["@media(max-height: 670px)"]: {
-                m: 0,
-                "& .MuiCollapse-root": {
-                  maxHeight: "3rem",
-                  overflow: "scroll",
-                },
-              },
-            },
             bgcolor: "hsl(240, 5%, 91%)",
             boxShadow: "none",
             "::before": {
@@ -258,7 +249,7 @@ const rootTheme = createTheme({
               p: 0,
               my: "1rem",
               ["@media(max-height: 670px)"]: {
-                my: 0,
+                my: "0.2rem",
               },
             },
           }),
@@ -278,6 +269,23 @@ const rootTheme = createTheme({
               color: "hsl(238, 29%, 16%)",
               fontWeight: "700",
             },
+            ["@media(max-height: 670px)"]: {
+              "&.Mui-expanded": {
+                m: 0,
+              },
+            },
+          }),
+      },
+    },
+    MuiCollapse: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            ["@media(max-height:667px)"]: {
+              maxHeight: "4.5rem",
+              overflow: "scroll",
+            },
+            maxHeight: "initial",
           }),
       },
     },
