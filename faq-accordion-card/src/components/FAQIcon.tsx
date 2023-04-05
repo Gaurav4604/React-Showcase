@@ -1,10 +1,11 @@
-import { Container } from "@mui/material";
-import Image from "next/image";
+import { Container, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
+import AnimatedImage from "./AnimatedImage";
+import Image from "next/image";
 
-type Props = {};
-
-const FAQIcon = (props: Props) => {
+const FAQIcon = () => {
+  const theme = useTheme();
+  const mediaQuery = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Container id="faq-icon" disableGutters component={"section"}>
       <Container
@@ -13,7 +14,9 @@ const FAQIcon = (props: Props) => {
         disableGutters
       >
         <Image
-          src={"illustration-woman-online-desktop.svg"}
+          src={`illustration-woman-online-${
+            mediaQuery ? "mobile" : "desktop"
+          }.svg`}
           alt={""}
           width={500}
           height={500}
@@ -21,22 +24,24 @@ const FAQIcon = (props: Props) => {
           priority
         />
         <Image
-          src={"bg-pattern-desktop.svg"}
+          src={`bg-pattern-${mediaQuery ? "mobile" : "desktop"}.svg`}
           alt={""}
           id="shadow"
           width={500}
           height={500}
         />
       </Container>
-      <Container id="overflow" className={"faq-icon-wrapper"} disableGutters>
-        <Image
-          src={"illustration-box-desktop.svg"}
-          width={500}
-          height={300}
-          alt={""}
-          id="box"
-        />
-      </Container>
+      {!mediaQuery && (
+        <Container id="overflow" className={"faq-icon-wrapper"} disableGutters>
+          <Image
+            src={`illustration-box-desktop.svg`}
+            width={500}
+            height={300}
+            alt={""}
+            id="box"
+          />
+        </Container>
+      )}
     </Container>
   );
 };

@@ -39,9 +39,7 @@ const FAQ = ({ faqList }: Props) => {
             <Typography>{faq.params.question}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography color={"hsl(240, 6%, 50%)"}>
-              {faq.params.answer}
-            </Typography>
+            <Typography id="answer">{faq.params.answer}</Typography>
           </AccordionDetails>
         </Accordion>
       </React.Fragment>
@@ -50,19 +48,7 @@ const FAQ = ({ faqList }: Props) => {
 
   return (
     <Container disableGutters component={"section"} id="faq-accordion">
-      <Typography
-        variant="h1"
-        color={"hsl(238, 29%, 16%)"}
-        sx={{
-          width: "70%",
-          fontWeight: "700",
-          fontSize: "3rem",
-          textAlign: "start",
-          mb: "2rem",
-        }}
-      >
-        FAQ
-      </Typography>
+      <Typography variant="h1">FAQ</Typography>
       {generateAccordions()}
     </Container>
   );
