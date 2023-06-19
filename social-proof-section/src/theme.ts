@@ -1,32 +1,6 @@
 import { leagueSpartan } from "./pages/_app";
 import { createTheme } from "@mui/material";
 
-import "@mui/material";
-interface customPaletteOptions {
-  veryDarkMagenta?: string;
-  softPink?: string;
-  darkGrayishMagenta?: string;
-  lightGrayishMagenta?: string;
-  white?: string;
-}
-
-interface customPalette {
-  veryDarkMagenta: string;
-  softPink: string;
-  darkGrayishMagenta: string;
-  lightGrayishMagenta: string;
-  white: string;
-}
-
-declare module "@mui/material" {
-  interface Palette {
-    custom?: customPalette;
-  }
-  interface PaletteOptions {
-    custom?: customPaletteOptions;
-  }
-}
-
 const rootTheme = createTheme({
   palette: {
     custom: {
@@ -36,6 +10,9 @@ const rootTheme = createTheme({
       lightGrayishMagenta: "hsl(300, 24%, 96%)",
       white: "hsl(0, 0%, 100%)",
     },
+  },
+  typography: {
+    fontFamily: leagueSpartan.style.fontFamily,
   },
   components: {
     MuiTypography: {
@@ -50,10 +27,29 @@ const rootTheme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             [theme.breakpoints.up("lg")]: {
-              maxWidth: "100vw",
+              maxWidth: "1440px",
             },
           }),
       },
+      variants: [
+        {
+          props: {
+            id: "main",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              width: "100vw",
+              height: "100vh",
+              display: "grid",
+              px: "5rem",
+              py: "5rem",
+              gridTemplateRows: "repeat(7, 1fr)",
+              gridTemplateColumns: "repeat(7, 1fr)",
+              rowGap: "1rem",
+              columnGap: "1rem",
+            }),
+        },
+      ],
     },
   },
 });
