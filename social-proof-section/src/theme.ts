@@ -41,12 +41,27 @@ const rootTheme = createTheme({
               width: "100vw",
               height: "100vh",
               display: "grid",
-              px: "5rem",
-              py: "5rem",
-              gridTemplateRows: "repeat(7, 1fr)",
-              gridTemplateColumns: "repeat(7, 1fr)",
-              rowGap: "1rem",
-              columnGap: "1rem",
+              p: "5rem",
+              [theme.breakpoints.down("lg")]: {
+                p: "2rem",
+              },
+              gridTemplateRows: "repeat(30, 1fr)",
+              gridTemplateColumns: "repeat(9, 1fr)",
+              columnGap: "1.5rem",
+              position: "relative",
+            }),
+        },
+        {
+          props: {
+            id: "rating-section",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              gridRow: "2/4",
+              gridColumn: "4/8",
+              display: "grid",
+              gridTemplateRows: "repeat(4, 1fr)",
+              gridTemplateColumns: "repeat(6, 1fr)",
             }),
         },
       ],

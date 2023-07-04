@@ -10,17 +10,16 @@ import {
   createTheme,
 } from "@mui/material";
 import { deepmerge } from "@mui/utils";
+import { Variants, motion } from "framer-motion";
 import React from "react";
 
 type Props = {
   src: string;
   name: string;
   content: string;
-  positionHorizontal: {
-    start: number;
-    end: number;
-  };
-  alignment: "start" | "center" | "end";
+  gridRow: string;
+  gridColumn: string;
+  animationIndex: number;
 };
 
 const cardTheme = createTheme({
@@ -32,14 +31,13 @@ const cardTheme = createTheme({
       styleOverrides: {
         root: ({ theme }) =>
           theme.unstable_sx({
-            height: "14rem",
-            width: "21rem",
             bgcolor: theme.palette.custom?.veryDarkMagenta,
             borderRadius: "0.4rem",
-            py: "0.8rem",
-            px: "0.5rem",
-            alignSelf: "center",
-            justifySelf: "center",
+            py: "1rem",
+            px: "0.8rem",
+            height: "100%",
+            maxHeight: "15rem",
+            alignSelf: "start",
           }),
       },
     },
@@ -49,12 +47,12 @@ const cardTheme = createTheme({
           theme.unstable_sx({
             color: theme.palette.custom?.white,
             fontWeight: "600",
-            fontSize: "0.9rem",
+            fontSize: "1rem",
           }),
         subheader: ({ theme }) =>
           theme.unstable_sx({
             color: theme.palette.custom?.softPink,
-            fontSize: "0.95rem",
+            fontSize: "1rem",
           }),
       },
     },
@@ -62,7 +60,7 @@ const cardTheme = createTheme({
       styleOverrides: {
         body1: ({ theme }) =>
           theme.unstable_sx({
-            fontSize: "0.9rem",
+            fontSize: "1rem",
             color: theme.palette.custom?.white,
           }),
       },
@@ -71,16 +69,31 @@ const cardTheme = createTheme({
 });
 
 const ReviewCard = (props: Props) => {
+  const variants: Variants = {
+    visible: (custom: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: custom * 0.2, duration: 0.5 },
+    }),
+    invisible: () => ({
+      opacity: 0,
+      y: 100,
+    }),
+  };
+
   return (
     <ThemeProvider theme={deepmerge(cardTheme, rootTheme)}>
       <Card
         elevation={0}
+        component={motion.div}
         sx={{
-          gridRow: "5/8",
-          gridColumnStart: props.positionHorizontal.start,
-          gridColumnEnd: props.positionHorizontal.end,
-          alignSelf: props.alignment,
+          gridRow: props.gridRow,
+          gridColumn: props.gridColumn,
         }}
+        initial="invisible"
+        animate="visible"
+        custom={props.animationIndex}
+        variants={variants}
       >
         <CardHeader
           avatar={<Avatar src={props.src} />}
@@ -88,7 +101,7 @@ const ReviewCard = (props: Props) => {
           subheader="Verified Buyer"
         />
         <CardContent>
-          <Typography variant="body1">&quot; {props.content} &quot;</Typography>
+          <Typography variant="body1">&quot;{props.content}&quot;</Typography>
         </CardContent>
       </Card>
     </ThemeProvider>
