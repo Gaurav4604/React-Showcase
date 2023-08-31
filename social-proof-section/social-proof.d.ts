@@ -5,6 +5,7 @@ interface customPaletteOptions {
   darkGrayishMagenta?: string;
   lightGrayishMagenta?: string;
   white?: string;
+  star?: string;
 }
 
 interface customPalette {
@@ -13,6 +14,7 @@ interface customPalette {
   darkGrayishMagenta: string;
   lightGrayishMagenta: string;
   white: string;
+  star: string;
 }
 
 declare module "@mui/material" {

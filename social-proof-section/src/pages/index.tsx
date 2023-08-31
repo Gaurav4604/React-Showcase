@@ -15,37 +15,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container component={"main"} id="main" disableGutters>
-        {/* <Container component={"section"} id="rating-section" disableGutters>
-          <RatingPanel />
-        </Container> */}
-        <ReviewCard
-          name="Colton Smith"
-          src="/images/image-colton.jpg"
-          content="We needed the same printed design as the one we had ordered a week prior.
+        <Container component={"section"} id="app-container" disableGutters>
+          <Container component={"section"} id="description" disableGutters>
+            <Container
+              component={"section"}
+              id="description-section"
+              disableGutters
+            ></Container>
+            <Container component={"section"} id="rating-section" disableGutters>
+              <RatingPanel gridRow="1/3" gridColumn="1/11" />
+              <RatingPanel gridRow="4/6" gridColumn="2/12" />
+              <RatingPanel gridRow="7/9" gridColumn="3/13" />
+            </Container>
+          </Container>
+          <ReviewCard
+            name="Colton Smith"
+            src="/images/image-colton.jpg"
+            content="We needed the same printed design as the one we had ordered a week prior.
           Not only did they find the original order, but we also received it in time.
           Excellent!"
-          gridRow="18/30"
-          gridColumn="1/4"
-          animationIndex={0}
-        />
-        <ReviewCard
-          name="Irene Roberts"
-          src="/images/image-irene.jpg"
-          content="Customer service is always excellent and very quick turn around. Completely
+            gridRow="18/31"
+            gridColumn="1/4"
+            animationIndex={0}
+          />
+          <ReviewCard
+            name="Irene Roberts"
+            src="/images/image-irene.jpg"
+            content="Customer service is always excellent and very quick turn around. Completely
           delighted with the simplicity of the purchase and the speed of delivery."
-          animationIndex={1}
-          gridRow="19/30"
-          gridColumn="4/7"
-        />
-        <ReviewCard
-          name="Anne Wallace"
-          src="/images/image-anne.jpg"
-          content="Put an order with this company and can only praise them for the very high
+            animationIndex={1}
+            gridRow="19/31"
+            gridColumn="4/7"
+          />
+          <ReviewCard
+            name="Anne Wallace"
+            src="/images/image-anne.jpg"
+            content="Put an order with this company and can only praise them for the very high
           standard. Will definitely use them again and recommend them to everyone!"
-          animationIndex={2}
-          gridRow="20/30"
-          gridColumn="7/11"
-        />
+            animationIndex={2}
+            gridRow="20/31"
+            gridColumn="7/11"
+          />
+        </Container>
         <Image
           src={"/images/bg-pattern-top-desktop.svg"}
           fill

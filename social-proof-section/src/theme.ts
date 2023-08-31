@@ -9,6 +9,7 @@ const rootTheme = createTheme({
       darkGrayishMagenta: "hsl(303, 10%, 53%)",
       lightGrayishMagenta: "hsl(300, 24%, 96%)",
       white: "hsl(0, 0%, 100%)",
+      star: "#EF9546",
     },
   },
   typography: {
@@ -40,7 +41,32 @@ const rootTheme = createTheme({
             theme.unstable_sx({
               width: "100vw",
               height: "100vh",
+              p: "5rem",
+              [theme.breakpoints.up("lg")]: {
+                maxWidth: "100vw",
+              },
+              [theme.breakpoints.down("lg")]: {
+                p: "2rem",
+              },
+              gridTemplateRows: "repeat(30, 1fr)",
+              gridTemplateColumns: "repeat(10, 1fr)",
+              columnGap: "1.5rem",
+              position: "relative",
+              overflow: "hidden",
+              [theme.breakpoints.down("md")]: {
+                overflowY: "auto",
+              },
+            }),
+        },
+        {
+          props: {
+            id: "app-container",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
               display: "grid",
+              width: "100%",
+              height: "100%",
               p: "5rem",
               [theme.breakpoints.down("lg")]: {
                 p: "2rem",
@@ -53,15 +79,43 @@ const rootTheme = createTheme({
         },
         {
           props: {
+            id: "description",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              display: "grid",
+              gridRow: "1/16",
+              gridColumn: "1/11",
+              gridTemplateRows: "repeat(1, 1fr)",
+              gridTemplateColumns: "repeat(2, 1fr)",
+            }),
+        },
+        {
+          props: {
+            id: "description-section",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              display: "grid",
+              gridRow: 1,
+              gridColumn: "1/2",
+              bgcolor: "blue",
+            }),
+        },
+        {
+          props: {
             id: "rating-section",
           },
           style: ({ theme }) =>
             theme.unstable_sx({
-              gridRow: "2/4",
-              gridColumn: "4/8",
               display: "grid",
-              gridTemplateRows: "repeat(4, 1fr)",
-              gridTemplateColumns: "repeat(6, 1fr)",
+              gridRow: 1,
+              gridColumn: "2/3",
+              height: "70%",
+              alignSelf: "center",
+              bgcolor: "red",
+              gridTemplateRows: "repeat(8, 1fr)",
+              gridTemplateColumns: "repeat(12, 1fr)",
             }),
         },
       ],
