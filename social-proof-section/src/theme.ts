@@ -70,6 +70,14 @@ const rootTheme = createTheme({
               gridTemplateRows: "repeat(30, 1fr)",
               gridTemplateColumns: "repeat(9, 1fr)",
               columnGap: "1.5rem",
+              [theme.breakpoints.down("lg")]: {
+                maxHeight: "800px",
+                columnGap: "1rem",
+              },
+              [theme.breakpoints.down("md")]: {
+                maxHeight: "unset",
+                display: "block",
+              },
               position: "relative",
             }),
         },
@@ -84,6 +92,12 @@ const rootTheme = createTheme({
               gridColumn: "1/11",
               gridTemplateRows: "repeat(1, 1fr)",
               gridTemplateColumns: "repeat(2, 1fr)",
+              [theme.breakpoints.down("md")]: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              },
             }),
         },
         {
@@ -114,6 +128,12 @@ const rootTheme = createTheme({
               alignSelf: "center",
               gridTemplateRows: "repeat(8, 1fr)",
               gridTemplateColumns: "repeat(12, 1fr)",
+              [theme.breakpoints.down("md")]: {
+                display: "flex",
+                flexDirection: "column",
+                maxHeight: "unset",
+                height: "unset",
+              },
             }),
         },
       ],
@@ -123,17 +143,32 @@ const rootTheme = createTheme({
 
 rootTheme.typography.h2 = {
   color: rootTheme.palette.custom?.veryDarkMagenta,
-  fontSize: "3.5rem",
+  fontSize: "4rem",
   width: "100%",
-  maxWidth: "24rem",
+  maxWidth: "26rem",
   marginBottom: "2rem",
+  [rootTheme.breakpoints.down("lg")]: {
+    fontSize: "3.5rem",
+  },
+  [rootTheme.breakpoints.down("md")]: {
+    fontSize: "3rem",
+    maxWidth: "100%",
+    textAlign: "center",
+  },
 };
 rootTheme.typography.h4 = {
   color: rootTheme.palette.custom?.veryDarkMagenta,
-  fontSize: "1.2rem",
+  fontSize: "1.5rem",
   fontWeight: "400",
   lineHeight: "2rem",
-  width: "95%",
+  maxWidth: "28rem",
+  width: "100%",
+  [rootTheme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    maxWidth: "100%",
+    marginBottom: "2rem",
+    textAlign: "center",
+  },
 };
 
 export default rootTheme;

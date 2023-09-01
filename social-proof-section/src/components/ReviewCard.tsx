@@ -36,8 +36,13 @@ const cardTheme = createTheme({
             py: "1rem",
             px: "0.8rem",
             height: "100%",
+            minHeight: "12rem",
             maxHeight: "16rem",
             alignSelf: "start",
+            [theme.breakpoints.down("md")]: {
+              marginBottom: "2rem",
+              height: "14rem",
+            },
           }),
       },
     },

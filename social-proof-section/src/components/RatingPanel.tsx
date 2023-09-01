@@ -2,6 +2,7 @@ import { leagueSpartan } from "@/pages/_app";
 import rootTheme from "@/theme";
 import { Star } from "@mui/icons-material";
 import {
+  Container,
   Paper,
   Stack,
   ThemeProvider,
@@ -26,6 +27,7 @@ const theme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             bgcolor: theme.palette.custom?.lightGrayishMagenta,
+            minHeight: "4rem",
             maxHeight: "4rem",
             height: "100%",
             width: "100%",
@@ -36,6 +38,11 @@ const theme = createTheme({
             alignItems: "center",
             pl: "2rem",
             borderRadius: "0.5rem",
+            [theme.breakpoints.down("md")]: {
+              marginBottom: "2rem",
+              flexDirection: "column",
+              justifyContent: "center",
+            },
           }),
       },
     },
@@ -68,7 +75,10 @@ const theme = createTheme({
             fontFamily: leagueSpartan.style.fontFamily,
             color: theme.palette.custom?.veryDarkMagenta,
             fontWeight: "600",
-            fontSize: "0.9rem",
+            fontSize: "1rem",
+            [theme.breakpoints.down("lg")]: {
+              fontSize: "0.9rem",
+            },
           }),
       },
     },
@@ -78,6 +88,23 @@ const theme = createTheme({
           height: "100%",
         },
       },
+      variants: [
+        {
+          props: {
+            id: "stars-container",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              mr: "2rem",
+              height: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              [theme.breakpoints.down("md")]: {
+                mr: 0,
+              },
+            }),
+        },
+      ],
     },
   },
 });
@@ -107,11 +134,13 @@ const RatingPanel = (props: Props) => {
         custom={props.animationIndex}
         variants={variants}
       >
-        <Star />
-        <Star />
-        <Star />
-        <Star />
-        <Star id="last-star" />
+        <Stack id="stars-container" direction={"row"}>
+          <Star />
+          <Star />
+          <Star />
+          <Star />
+          <Star />
+        </Stack>
         <Stack alignItems="center" justifyContent="center">
           <Typography variant="caption">
             Rated 5 Stars in {props.brand}
