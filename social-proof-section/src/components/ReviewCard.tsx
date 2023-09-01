@@ -36,7 +36,7 @@ const cardTheme = createTheme({
             py: "1rem",
             px: "0.8rem",
             height: "100%",
-            maxHeight: "15rem",
+            maxHeight: "16rem",
             alignSelf: "start",
           }),
       },

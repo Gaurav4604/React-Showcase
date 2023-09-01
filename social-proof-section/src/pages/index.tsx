@@ -2,8 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { League_Spartan } from "next/font/google";
 import ReviewCard from "@/components/ReviewCard";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import RatingPanel from "@/components/RatingPanel";
+import rootTheme from "@/theme";
 
 export default function Home() {
   return (
@@ -21,11 +22,24 @@ export default function Home() {
               component={"section"}
               id="description-section"
               disableGutters
-            ></Container>
+            >
+              <Typography variant="h2">
+                10,000+ of our users love our products.
+              </Typography>
+              <Typography variant="h4">
+                We only provide great products combined with excellent customer
+                service. See what our satisfied customers are saying about our
+                services.
+              </Typography>
+            </Container>
             <Container component={"section"} id="rating-section" disableGutters>
-              <RatingPanel gridRow="1/3" gridColumn="1/11" />
-              <RatingPanel gridRow="4/6" gridColumn="2/12" />
-              <RatingPanel gridRow="7/9" gridColumn="3/13" />
+              <RatingPanel gridRow="1/3" gridColumn="1/11" brand={"Reviews"} />
+              <RatingPanel
+                gridRow="4/6"
+                gridColumn="2/12"
+                brand={"Report Guru"}
+              />
+              <RatingPanel gridRow="7/9" gridColumn="3/13" brand={"BestTech"} />
             </Container>
           </Container>
           <ReviewCard
