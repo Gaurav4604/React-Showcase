@@ -40,6 +40,7 @@ const theme = createTheme({
             borderRadius: "0.5rem",
             [theme.breakpoints.down("md")]: {
               marginBottom: "2rem",
+              pl: 0,
               flexDirection: "column",
               justifyContent: "center",
             },
@@ -63,7 +64,7 @@ const theme = createTheme({
             id: "last-star",
           },
           style: {
-            marginRight: "2rem",
+            marginRight: 0,
           },
         },
       ],
@@ -78,6 +79,9 @@ const theme = createTheme({
             fontSize: "1rem",
             [theme.breakpoints.down("lg")]: {
               fontSize: "0.9rem",
+            },
+            [theme.breakpoints.down("md")]: {
+              mb: "0.5rem",
             },
           }),
       },
@@ -101,6 +105,7 @@ const theme = createTheme({
               justifyContent: "center",
               [theme.breakpoints.down("md")]: {
                 mr: 0,
+                my: "0.5rem",
               },
             }),
         },
@@ -139,7 +144,7 @@ const RatingPanel = (props: Props) => {
           <Star />
           <Star />
           <Star />
-          <Star />
+          <Star id="last-star" />
         </Stack>
         <Stack alignItems="center" justifyContent="center">
           <Typography variant="caption">

@@ -2,11 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { League_Spartan } from "next/font/google";
 import ReviewCard from "@/components/ReviewCard";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, useMediaQuery } from "@mui/material";
 import RatingPanel from "@/components/RatingPanel";
 import rootTheme from "@/theme";
+import { useTheme } from "@mui/material";
 
 export default function Home() {
+  const theme = useTheme();
+  const mediaQuery = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <>
       <Head>
@@ -82,32 +85,36 @@ export default function Home() {
             gridColumn="7/11"
           />
         </Container>
-        <Image
-          src={"/images/bg-pattern-top-desktop.svg"}
-          fill
-          priority
-          id="bg-top"
-          alt="bg-top"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "-70vw",
-            zIndex: -1,
-          }}
-        />
-        <Image
-          src={"/images/bg-pattern-bottom-desktop.svg"}
-          fill
-          priority
-          id="bg-bottom"
-          alt="bg-bottom"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            zIndex: -1,
-            left: "28vw",
-          }}
-        />
+        {mediaQuery && (
+          <>
+            <Image
+              src={"/images/bg-pattern-top-desktop.svg"}
+              fill
+              priority
+              id="bg-top"
+              alt="bg-top"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "-70vw",
+                zIndex: -1,
+              }}
+            />
+            <Image
+              src={"/images/bg-pattern-bottom-desktop.svg"}
+              fill
+              priority
+              id="bg-bottom"
+              alt="bg-bottom"
+              style={{
+                position: "absolute",
+                bottom: 0,
+                zIndex: -1,
+                left: "28vw",
+              }}
+            />
+          </>
+        )}
       </Container>
     </>
   );
