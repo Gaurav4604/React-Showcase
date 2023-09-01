@@ -86,6 +86,7 @@ const ReviewCard = (props: Props) => {
       <Card
         elevation={0}
         component={motion.div}
+        layout
         sx={{
           gridRow: props.gridRow,
           gridColumn: props.gridColumn,

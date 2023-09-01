@@ -33,13 +33,24 @@ export default function Home() {
               </Typography>
             </Container>
             <Container component={"section"} id="rating-section" disableGutters>
-              <RatingPanel gridRow="1/3" gridColumn="1/11" brand={"Reviews"} />
+              <RatingPanel
+                gridRow="1/3"
+                gridColumn="1/11"
+                brand={"Reviews"}
+                animationIndex={0}
+              />
               <RatingPanel
                 gridRow="4/6"
                 gridColumn="2/12"
                 brand={"Report Guru"}
+                animationIndex={1}
               />
-              <RatingPanel gridRow="7/9" gridColumn="3/13" brand={"BestTech"} />
+              <RatingPanel
+                gridRow="7/9"
+                gridColumn="3/13"
+                brand={"BestTech"}
+                animationIndex={2}
+              />
             </Container>
           </Container>
           <ReviewCard

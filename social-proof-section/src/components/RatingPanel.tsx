@@ -9,13 +9,14 @@ import {
   createTheme,
 } from "@mui/material";
 import { deepmerge } from "@mui/utils";
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import React from "react";
 
 type Props = {
   gridRow: string;
   gridColumn: string;
   brand: string;
+  animationIndex: number;
 };
 
 const theme = createTheme({
@@ -82,9 +83,30 @@ const theme = createTheme({
 });
 
 const RatingPanel = (props: Props) => {
+  const variants: Variants = {
+    visible: (custom: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: custom * 0.2, duration: 0.5 },
+    }),
+    invisible: () => ({
+      opacity: 0,
+      x: 100,
+    }),
+  };
+
   return (
     <ThemeProvider theme={deepmerge(theme, rootTheme)}>
-      <Paper component={motion.div} elevation={0} sx={{ ...props }}>
+      <Paper
+        component={motion.div}
+        elevation={0}
+        sx={{ ...props }}
+        layout
+        initial="invisible"
+        animate="visible"
+        custom={props.animationIndex}
+        variants={variants}
+      >
         <Star />
         <Star />
         <Star />

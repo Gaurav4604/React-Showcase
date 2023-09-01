@@ -24,6 +24,14 @@ const rootTheme = createTheme({
       },
     },
     MuiContainer: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            [theme.breakpoints.up("lg")]: {
+              maxWidth: "1240px",
+            },
+          }),
+      },
       variants: [
         {
           props: {
@@ -36,11 +44,9 @@ const rootTheme = createTheme({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              p: "2rem",
               [theme.breakpoints.up("lg")]: {
                 maxWidth: "100vw",
-              },
-              [theme.breakpoints.down("lg")]: {
-                p: "2rem",
               },
               position: "relative",
               overflow: "hidden",
@@ -59,12 +65,7 @@ const rootTheme = createTheme({
               width: "100%",
               height: "100%",
               [theme.breakpoints.up("lg")]: {
-                maxWidth: "1024px",
                 maxHeight: "800px",
-              },
-              [theme.breakpoints.down("lg")]: {
-                maxWidth: "1024px",
-                p: "2rem",
               },
               gridTemplateRows: "repeat(30, 1fr)",
               gridTemplateColumns: "repeat(9, 1fr)",
