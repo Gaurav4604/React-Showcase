@@ -41,7 +41,7 @@ const cardTheme = createTheme({
             alignSelf: "start",
             [theme.breakpoints.down("md")]: {
               marginBottom: "2rem",
-              height: "14rem",
+              height: "15rem",
             },
           }),
       },
