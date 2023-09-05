@@ -3,7 +3,6 @@ import {
   Stack,
   TextField,
   ThemeProvider,
-  Typography,
   createTheme,
   outlinedInputClasses,
 } from "@mui/material";
@@ -185,7 +184,6 @@ const CustomInput = () => {
           ),
         }}
       />
-      <Typography variant="caption"></Typography>
     </ThemeProvider>
   );
 };
