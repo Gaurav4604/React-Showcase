@@ -13,6 +13,7 @@ import HeroImageSourceMobile from "./hero-mobile.jpg";
 import "@fontsource/josefin-sans/300.css";
 import "@fontsource/josefin-sans/400.css";
 import "@fontsource/josefin-sans/600.css";
+import Logo from "./Logo";
 
 const theme = createTheme({
   typography: {
@@ -93,10 +94,11 @@ const theme = createTheme({
               },
               [theme.breakpoints.down("md")]: {
                 display: "flex",
+                height: "unset",
+                minHeight: "100vh",
                 flexDirection: "column-reverse",
                 "& #hero": {
                   width: "100%",
-                  height: "20rem",
                 },
               },
             }),
@@ -142,7 +144,7 @@ const theme = createTheme({
               [theme.breakpoints.down("md")]: {
                 alignItems: "center",
                 justifyContent: "space-evenly",
-                px: "2rem",
+                px: "1.5rem",
                 height: "30rem",
               },
             }),
@@ -184,6 +186,7 @@ function App() {
           alt="hero"
           id="hero"
         />
+        <Logo />
       </Container>
     </ThemeProvider>
   );
