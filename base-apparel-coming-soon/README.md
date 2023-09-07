@@ -1,6 +1,6 @@
 # Frontend Mentor - Base Apparel coming soon page solution
 
-This is a solution to the [Base Apparel coming soon page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Base Apparel coming soon page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -11,7 +11,6 @@ This is a solution to the [Base Apparel coming soon page challenge on Frontend M
 - [My process](#my-process)
   - [Built with](#built-with)
 - [Author](#author)
-
 
 ## Overview
 
@@ -45,7 +44,6 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Material UI Components](https://mui.com/) - For components and Theme
-
 
 ## Author
 
