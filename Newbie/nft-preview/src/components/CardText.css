@@ -1,0 +1,29 @@
+.heading {
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.heading:hover {
+  cursor: pointer;
+  color: hsl(178, 100%, 50%);
+}
+
+.caption {
+  opacity: 0.7;
+  font-weight: 300;
+  color: #fff;
+}
+
+.highlight {
+  color: #fff;
+  font-weight: 400;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.highlight:hover {
+  cursor: pointer;
+  color: hsl(178, 100%, 50%);
+}
