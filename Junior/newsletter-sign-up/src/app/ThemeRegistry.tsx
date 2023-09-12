@@ -5,6 +5,7 @@ import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import React, { PropsWithChildren } from "react";
+import { outlinedInputClasses } from "@mui/material";
 
 interface Props extends PropsWithChildren {
   options: Options;
@@ -37,11 +38,70 @@ const theme = createTheme({
       fontSize: "1.2rem",
     },
     body2: {
-      marginBottom: "2rem",
+      marginBottom: "1rem",
       fontSize: "1.2rem",
+    },
+    caption: {
+      fontSize: "0.8rem",
+      fontWeight: "600",
+    },
+    button: {
+      fontWeight: "600",
+      color: palette.common.white,
+      textTransform: "none",
+      fontSize: "1rem",
     },
   }),
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            width: "100%",
+          }),
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: ({ theme }) =>
+          theme.unstable_sx({
+            pl: "1.2rem",
+            color: theme.palette.primary.contrastText,
+            [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+              borderColor: theme.palette.primary.contrastText,
+            },
+          }),
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: "0.5rem",
+            transition: "0.5s",
+            borderColor: theme.palette.primary.contrastText,
+            [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
+              borderColor: theme.palette.primary.contrastText,
+            },
+          }),
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            my: "1rem",
+          }),
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            borderRadius: "0.5rem",
+            width: "100%",
+            height: "3.5rem",
+            my: "1rem",
+            bgcolor: theme.palette.primary.contrastText,
+          }),
+      },
+    },
     MuiListItemAvatar: {
       styleOverrides: {
         root: ({ theme }) =>
@@ -103,7 +163,7 @@ const theme = createTheme({
           },
           style: ({ theme }) =>
             theme.unstable_sx({
-              pr: "2rem",
+              px: "1.5rem",
             }),
         },
       ],
