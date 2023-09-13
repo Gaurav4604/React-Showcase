@@ -50,6 +50,7 @@ const theme = createTheme({
       color: palette.common.white,
       textTransform: "none",
       fontSize: "1rem",
+      zIndex: 2,
     },
   }),
   components: {
@@ -97,8 +98,30 @@ const theme = createTheme({
             borderRadius: "0.5rem",
             width: "100%",
             height: "3.5rem",
-            my: "1rem",
-            bgcolor: theme.palette.primary.contrastText,
+            mt: "1.5rem",
+            mb: "3rem",
+            bgcolor: "transparent",
+            background: theme.palette.primary.contrastText,
+            overflow: "hidden",
+            ":hover": {
+              bgcolor: "transparent",
+              background: theme.palette.primary.contrastText,
+            },
+            "::before": {
+              content: `""`,
+              position: "absolute",
+              left: 0,
+              top: 0,
+              width: "100%",
+              height: "100%",
+              background: "linear-gradient(to left, #FF6A3A, #FF527B)",
+              zIndex: 1,
+              opacity: 0,
+              transition: "opacity 0.5s",
+            },
+            ":hover::before": {
+              opacity: 1,
+            },
           }),
       },
     },
@@ -107,7 +130,7 @@ const theme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             minWidth: "40px",
-            top: "0.6rem",
+            top: "0.4rem",
             position: "absolute",
             "& .MuiAvatar-root": {
               height: "1.5rem",

@@ -26,7 +26,7 @@ const TextField = () => {
         onChange={(e) => setMail(e.target.value)}
         id="text-field"
       />
-      <Button variant="contained">
+      <Button variant="contained" disableElevation>
         <Typography variant="button">
           Subscribe to monthly newsletter
         </Typography>
