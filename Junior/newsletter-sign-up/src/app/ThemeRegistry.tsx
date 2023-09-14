@@ -41,9 +41,14 @@ const theme = createTheme({
       marginBottom: "1rem",
       fontSize: "1.2rem",
     },
-    caption: {
+    subtitle1: {
       fontSize: "0.8rem",
       fontWeight: "600",
+    },
+    subtitle2: {
+      fontSize: "0.8rem",
+      fontWeight: "600",
+      color: palette.primary.main,
     },
     button: {
       fontWeight: "600",
@@ -59,6 +64,11 @@ const theme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             width: "100%",
+            borderWidth: "0.1rem",
+            "& fieldset": {
+              borderWidth: "0.1rem",
+              transition: "all 0.5s ease",
+            },
           }),
       },
     },
@@ -67,19 +77,29 @@ const theme = createTheme({
         input: ({ theme }) =>
           theme.unstable_sx({
             pl: "1.2rem",
-            color: theme.palette.primary.contrastText,
-            [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-              borderColor: theme.palette.primary.contrastText,
-            },
+            color: "inherit",
           }),
         root: ({ theme }) =>
           theme.unstable_sx({
             borderRadius: "0.5rem",
-            transition: "0.5s",
             borderColor: theme.palette.primary.contrastText,
-            [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
-              borderColor: theme.palette.primary.contrastText,
+            color: theme.palette.primary.contrastText,
+            [`&.${outlinedInputClasses.error}`]: {
+              color: theme.palette.primary.main,
+              borderColor: theme.palette.primary.main,
             },
+            [`&.${outlinedInputClasses.error} .${outlinedInputClasses.notchedOutline}`]:
+              {
+                borderColor: theme.palette.primary.main,
+                color: theme.palette.primary.main,
+                bgcolor: "rgba(255, 98, 87, 0.4)",
+                borderWidth: "0.1rem",
+              },
+            [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]:
+              {
+                borderColor: "inherit",
+                borderWidth: "0.1rem",
+              },
           }),
       },
     },
@@ -87,7 +107,8 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ theme }) =>
           theme.unstable_sx({
-            my: "1rem",
+            mt: "1rem",
+            mb: "2rem",
           }),
       },
     },
