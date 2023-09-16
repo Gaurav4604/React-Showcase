@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { TextField as MuiTextField, Stack, Typography } from "@mui/material";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const validateEmail = (email: string) => {
   return Boolean(
@@ -16,6 +17,8 @@ const validateEmail = (email: string) => {
 const TextField = () => {
   const [mail, setMail] = useState("");
   const [error, setError] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (mail.length > 0) {
@@ -51,7 +54,10 @@ const TextField = () => {
         onChange={(e) => setMail(e.target.value)}
         id="text-field"
       />
-      <Button text={"Subscribe to monthly newsletter"} />
+      <Button
+        text={"Subscribe to monthly newsletter"}
+        onClick={() => router.push(`/success?mail=${mail}`)}
+      />
     </>
   );
 };

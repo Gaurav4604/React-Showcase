@@ -40,6 +40,7 @@ const theme = createTheme({
     body2: {
       marginBottom: "1rem",
       fontSize: "1.2rem",
+      maxWidth: "95%",
     },
     subtitle1: {
       fontSize: "0.8rem",
@@ -117,13 +118,20 @@ const theme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             borderRadius: "0.5rem",
-            width: "100%",
             height: "3.5rem",
             mt: "1.5rem",
             mb: "3rem",
             bgcolor: "transparent",
+            width: "100%",
             background: theme.palette.primary.contrastText,
             overflow: "hidden",
+            "&#success": {
+              position: "absolute",
+              left: "1.5rem",
+              bottom: "3rem",
+              mb: "unset",
+              width: "calc(100vw - 3rem)",
+            },
             ":hover": {
               bgcolor: "transparent",
               background: theme.palette.primary.contrastText,
@@ -197,6 +205,13 @@ const theme = createTheme({
               "& > img#card-image": {
                 display: "block",
                 width: "100%",
+                height: "unset",
+              },
+              "& img#success-image": {
+                display: "block",
+                width: "5rem",
+                mb: "3rem",
+                pt: "25vh",
                 height: "unset",
               },
             }),
