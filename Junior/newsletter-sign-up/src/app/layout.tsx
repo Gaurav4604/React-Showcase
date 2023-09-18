@@ -1,7 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import ThemeRegistry from "./ThemeRegistry";
-import { Card, Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
+import { usePathname } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Newsletter Sign-up",
@@ -30,11 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry options={{ key: "mui" }}>
-          <Container component="main" disableGutters>
-            {children}
-          </Container>
-        </ThemeRegistry>
+        <ThemeRegistry options={{ key: "mui" }}>{children}</ThemeRegistry>
       </body>
     </html>
   );

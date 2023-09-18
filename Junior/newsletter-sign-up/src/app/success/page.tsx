@@ -16,12 +16,12 @@ const Page = () => {
     ) {
       router.replace("/signup");
     }
-  }, []);
+  }, [params, router]);
 
   return (
     <>
       {params.get("mail") !== undefined && (
-        <Container component={"section"}>
+        <Container component={"main"} id="success">
           <NextImage
             alt="success-illustration"
             id="success-image"
@@ -30,7 +30,9 @@ const Page = () => {
             height="0"
             priority
           />
-          <Typography variant="h1">Thanks for subscribing!</Typography>
+          <Typography variant="h1" id="success">
+            Thanks for subscribing!
+          </Typography>
           <Typography variant="body2">
             A confirmation email has been sent to <b>{params.get("mail")}. </b>
             Please open it and click the button inside to confirm your

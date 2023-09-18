@@ -6,7 +6,7 @@ import { Container, List, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <>
+    <Container component="main" disableGutters>
       <Image />
       <Container component={"section"} disableGutters>
         <Typography variant="h1">Stay updated!</Typography>
@@ -20,6 +20,6 @@ export default function Home() {
         </List>
         <TextField />
       </Container>
-    </>
+    </Container>
   );
 }

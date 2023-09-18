@@ -114,6 +114,12 @@ const theme = createTheme({
               bottom: "3rem",
               mb: "unset",
               width: "calc(100vw - 3rem)",
+              [theme.breakpoints.up("md")]: {
+                width: "100%",
+                position: "relative",
+                left: "unset",
+                bottom: "unset",
+              },
             },
             ":hover": {
               bgcolor: "transparent",
@@ -146,7 +152,7 @@ const theme = createTheme({
             position: "absolute",
             [theme.breakpoints.up("md")]: {
               minWidth: "30px",
-              top: "0.45rem",
+              top: "0.35rem",
             },
             "& .MuiAvatar-root": {
               height: "1.5rem",
@@ -219,11 +225,17 @@ const theme = createTheme({
                 mb: "3rem",
                 pt: "25vh",
                 height: "unset",
+                [theme.breakpoints.up("md")]: {
+                  pt: "unset",
+                  width: "4rem",
+                  mb: "1rem",
+                },
               },
               [theme.breakpoints.up("md")]: {
                 minHeight: "unset",
                 maxHeight: "768px",
                 maxWidth: "920px",
+                minWidth: 0,
                 overflow: "hidden",
                 position: "absolute",
                 left: "50%",
@@ -249,9 +261,27 @@ const theme = createTheme({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
-                justifyContent: "end",
                 height: "80%",
                 px: "3rem",
+              },
+            }),
+        },
+        {
+          props: {
+            component: "main",
+            id: "success",
+          },
+          style: ({ theme }) =>
+            theme.unstable_sx({
+              px: "1.5rem",
+              [theme.breakpoints.up("md")]: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+                justifyContent: "center",
+                px: "3rem",
+                width: "25rem",
+                height: "30rem",
               },
             }),
         },
@@ -268,7 +298,7 @@ theme.typography.h1 = {
   [theme.breakpoints.up("md")]: {
     margin: "unset",
     fontSize: "3rem",
-    marginBottom: "0.5rem",
+    marginBottom: "1rem",
   },
 };
 theme.typography.body1 = {
