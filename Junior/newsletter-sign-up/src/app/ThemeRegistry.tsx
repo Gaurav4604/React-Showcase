@@ -7,6 +7,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import React, { PropsWithChildren } from "react";
 import { outlinedInputClasses } from "@mui/material";
 
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/700.css";
+
 interface Props extends PropsWithChildren {
   options: Options;
 }
@@ -28,35 +31,6 @@ const theme = createTheme({
   typography: (palette) => ({
     allVariants: {
       color: palette.primary.contrastText,
-    },
-    h1: {
-      fontSize: "3rem",
-      fontWeight: "600",
-      margin: "1.5rem 0",
-    },
-    body1: {
-      fontSize: "1.2rem",
-    },
-    body2: {
-      marginBottom: "1rem",
-      fontSize: "1.2rem",
-      maxWidth: "95%",
-    },
-    subtitle1: {
-      fontSize: "0.8rem",
-      fontWeight: "600",
-    },
-    subtitle2: {
-      fontSize: "0.8rem",
-      fontWeight: "600",
-      color: palette.primary.main,
-    },
-    button: {
-      fontWeight: "600",
-      color: palette.common.white,
-      textTransform: "none",
-      fontSize: "1rem",
-      zIndex: 2,
     },
   }),
   components: {
@@ -110,6 +84,12 @@ const theme = createTheme({
           theme.unstable_sx({
             mt: "1rem",
             mb: "2rem",
+            [theme.breakpoints.up("md")]: {
+              mb: "unset",
+              mt: "unset",
+              my: "1rem",
+              p: "0",
+            },
           }),
       },
     },
@@ -125,6 +105,9 @@ const theme = createTheme({
             width: "100%",
             background: theme.palette.primary.contrastText,
             overflow: "hidden",
+            [theme.breakpoints.up("md")]: {
+              mb: "unset",
+            },
             "&#success": {
               position: "absolute",
               left: "1.5rem",
@@ -161,13 +144,24 @@ const theme = createTheme({
             minWidth: "40px",
             top: "0.4rem",
             position: "absolute",
+            [theme.breakpoints.up("md")]: {
+              minWidth: "30px",
+              top: "0.45rem",
+            },
             "& .MuiAvatar-root": {
               height: "1.5rem",
               width: "1.5rem",
               bgcolor: theme.palette.primary.main,
+              [theme.breakpoints.up("md")]: {
+                height: "1.2rem",
+                width: "1.2rem",
+              },
               "& .MuiSvgIcon-root": {
                 color: theme.palette.common.white,
                 fontSize: "1.5rem",
+                [theme.breakpoints.up("md")]: {
+                  height: "1.2rem",
+                },
               },
             },
           }),
@@ -178,6 +172,9 @@ const theme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             mt: "1rem",
+            [theme.breakpoints.up("md")]: {
+              mt: "unset",
+            },
           }),
       },
     },
@@ -186,6 +183,9 @@ const theme = createTheme({
         root: ({ theme }) =>
           theme.unstable_sx({
             ml: "40px",
+            [theme.breakpoints.up("md")]: {
+              ml: "35px",
+            },
           }),
       },
     },
@@ -206,6 +206,12 @@ const theme = createTheme({
                 display: "block",
                 width: "100%",
                 height: "unset",
+                [theme.breakpoints.up("md")]: {
+                  display: "block",
+                  height: "100%",
+
+                  width: "unset",
+                },
               },
               "& img#success-image": {
                 display: "block",
@@ -213,6 +219,22 @@ const theme = createTheme({
                 mb: "3rem",
                 pt: "25vh",
                 height: "unset",
+              },
+              [theme.breakpoints.up("md")]: {
+                minHeight: "unset",
+                maxHeight: "768px",
+                maxWidth: "920px",
+                overflow: "hidden",
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                p: "1rem",
+                borderRadius: "1.5rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "row-reverse",
               },
             }),
         },
@@ -223,12 +245,77 @@ const theme = createTheme({
           style: ({ theme }) =>
             theme.unstable_sx({
               px: "1.5rem",
+              [theme.breakpoints.up("md")]: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+                justifyContent: "end",
+                height: "80%",
+                px: "3rem",
+              },
             }),
         },
       ],
     },
   },
 });
+
+theme.typography.h1 = {
+  fontFamily: "Roboto",
+  fontSize: "3rem",
+  fontWeight: "700",
+  margin: "1.5rem 0",
+  [theme.breakpoints.up("md")]: {
+    margin: "unset",
+    fontSize: "3rem",
+    marginBottom: "0.5rem",
+  },
+};
+theme.typography.body1 = {
+  fontFamily: "Roboto",
+  fontSize: "1.2rem",
+  [theme.breakpoints.up("md")]: {
+    margin: "unset",
+    fontSize: "1.1rem",
+    marginBottom: "unset",
+  },
+};
+theme.typography.body2 = {
+  fontFamily: "Roboto",
+  marginBottom: "1rem",
+  fontSize: "1.2rem",
+  maxWidth: "95%",
+  [theme.breakpoints.up("md")]: {
+    margin: "unset",
+    fontSize: "1.1rem",
+    marginBottom: "unset",
+  },
+};
+theme.typography.subtitle1 = {
+  fontFamily: "Roboto",
+  fontSize: "0.8rem",
+  fontWeight: "700",
+  [theme.breakpoints.up("md")]: {
+    marginTop: "1rem",
+    marginBottom: "0.2rem",
+    fontSize: "0.8rem",
+    fontWeight: "700",
+  },
+};
+theme.typography.subtitle2 = {
+  fontFamily: "Roboto",
+  fontSize: "0.8rem",
+  fontWeight: "700",
+  color: theme.palette.primary.main,
+};
+theme.typography.button = {
+  fontFamily: "Roboto",
+  fontWeight: "700",
+  color: theme.palette.common.white,
+  textTransform: "none",
+  fontSize: "1rem",
+  zIndex: 2,
+};
 
 export default function ThemeRegistry(props: Props) {
   const { options, children } = props;
