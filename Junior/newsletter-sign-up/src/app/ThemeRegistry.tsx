@@ -199,7 +199,7 @@ const theme = createTheme({
       variants: [
         {
           props: {
-            component: "main",
+            className: "main",
           },
           style: ({ theme }) =>
             theme.unstable_sx({
@@ -237,10 +237,6 @@ const theme = createTheme({
                 maxWidth: "920px",
                 minWidth: 0,
                 overflow: "hidden",
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
                 p: "1rem",
                 borderRadius: "1.5rem",
                 display: "flex",
@@ -268,7 +264,7 @@ const theme = createTheme({
         },
         {
           props: {
-            component: "main",
+            className: "main",
             id: "success",
           },
           style: ({ theme }) =>

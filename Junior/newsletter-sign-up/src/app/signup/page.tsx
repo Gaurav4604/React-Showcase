@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
+"use client";
 import Image from "@/components/Image";
 import ListItem from "@/components/ListItem";
 import TextField from "@/components/TextField";
 import { Container, List, Typography } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <Container component="main" disableGutters>
+    <Container component={"main"} disableGutters className="main">
       <Image />
       <Container component={"section"} disableGutters>
         <Typography variant="h1">Stay updated!</Typography>
@@ -21,5 +23,6 @@ export default function Home() {
         <TextField />
       </Container>
     </Container>
+    // </AnimatePresence>
   );
 }

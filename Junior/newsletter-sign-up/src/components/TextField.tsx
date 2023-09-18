@@ -56,7 +56,11 @@ const TextField = () => {
       />
       <Button
         text={"Subscribe to monthly newsletter"}
-        onClick={() => router.push(`/success?mail=${mail}`)}
+        onClick={() =>
+          router.push(`/success?mail=${mail}`, {
+            scroll: false,
+          })
+        }
       />
     </>
   );

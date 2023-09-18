@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import ThemeRegistry from "./ThemeRegistry";
-import { Container } from "@mui/material";
-import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import Client from "./client";
 
 export const metadata: Metadata = {
   title: "Newsletter Sign-up",
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry options={{ key: "mui" }}>{children}</ThemeRegistry>
+        <Client>{children}</Client>
       </body>
     </html>
   );

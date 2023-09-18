@@ -4,6 +4,7 @@ import NextImage from "next/image";
 import { Container, Typography } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 import Button from "@/components/Button";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Page = () => {
   const params = useSearchParams();
@@ -21,7 +22,7 @@ const Page = () => {
   return (
     <>
       {params.get("mail") !== undefined && (
-        <Container component={"main"} id="success">
+        <Container component={"main"} id="success" className="main">
           <NextImage
             alt="success-illustration"
             id="success-image"
@@ -41,7 +42,11 @@ const Page = () => {
           <Button
             text="Dismiss message"
             id="success"
-            onClick={() => router.replace("/signup")}
+            onClick={() =>
+              router.replace("/signup", {
+                scroll: false,
+              })
+            }
           />
         </Container>
       )}
