@@ -1,5 +1,7 @@
+import LayoutCard from "./LayoutCard";
+
 const App = () => {
-  return <div>App</div>;
+  return <LayoutCard />;
 };
 
 export default App;

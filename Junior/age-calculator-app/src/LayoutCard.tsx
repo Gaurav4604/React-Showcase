@@ -1,9 +1,7 @@
-import React from "react";
+import { Card } from "@mui/material";
 
-type Props = {};
-
-const LayoutCard = (props: Props) => {
-  return <div>LayoutCard</div>;
+const LayoutCard = () => {
+  return <Card sx={{ height: "10rem", width: "10rem" }}></Card>;
 };
 
 export default LayoutCard;
