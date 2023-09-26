@@ -1,5 +1,6 @@
-import { Stack, TextField } from "@mui/material";
-
+import { Stack, TextField, Typography } from "@mui/material";
+// import "@fontsource/poppins/800-italic.css";
+import "@fontsource/poppins/700.css";
 type Props = {
   label: string;
   placeholder: string;
@@ -9,8 +10,17 @@ type Props = {
 const DateInput = (props: Props) => {
   return (
     <Stack>
-      {props.label}
-      <TextField placeholder={props.placeholder} />
+      <Typography
+        sx={{
+          fontFamily: "poppins",
+          color: "hsl(0, 1%, 44%)",
+          letterSpacing: "0.1rem",
+          fontSize: "0.9rem",
+        }}
+      >
+        {props.label}
+      </Typography>
+      <TextField placeholder={props.placeholder} helperText="hello there" />
     </Stack>
   );
 };
