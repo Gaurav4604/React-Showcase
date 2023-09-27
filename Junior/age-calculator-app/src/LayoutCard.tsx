@@ -16,7 +16,7 @@ const LayoutCard = () => {
       }}
       elevation={0}
     >
-      <DateInput placeholder="hi" label="DAY" />
+      <DateInput placeholder="DD" label="DAY" />
     </Card>
   );
 };
