@@ -17,6 +17,7 @@ const DateInput = (props: Props) => {
           letterSpacing: "0.1rem",
           fontSize: "0.9rem",
         }}
+        component={"label"}
       >
         {props.label}
       </Typography>
