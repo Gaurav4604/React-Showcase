@@ -33,6 +33,7 @@ const DateInput = (props: Props) => {
           width: "8rem",
           fontSize: "1.5rem",
           "& > .MuiInputBase-root": {
+            transition: "all 0.25s ease",
             fontSize: "inherit",
             fontWeight: "700",
             fontFamily: "poppins",
@@ -45,6 +46,7 @@ const DateInput = (props: Props) => {
             borderColor: "hsl(259, 100%, 65%)",
             "& fieldset": {
               borderColor: "inherit",
+              borderWidth: "1px",
             },
           },
           "& input": {
