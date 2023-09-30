@@ -16,7 +16,12 @@ const LayoutCard = () => {
       }}
       elevation={0}
     >
-      <DateInput placeholder="DD" label="DAY" />
+      <DateInput
+        placeholder="DD"
+        label="DAY"
+        // error
+        // errorHandler={() => "Must be a valid date"}
+      />
     </Card>
   );
 };
