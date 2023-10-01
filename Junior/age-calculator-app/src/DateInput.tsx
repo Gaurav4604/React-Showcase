@@ -42,7 +42,7 @@ const DateInput = (props: Props) => {
             fontSize: "inherit",
             fontWeight: "700",
             fontFamily: "poppins",
-            borderColor: "hsl(0, 1%, 44%)",
+            borderColor: "hsl(0, 0%, 86%)",
             "& fieldset": {
               borderColor: "inherit",
             },
@@ -50,6 +50,13 @@ const DateInput = (props: Props) => {
           "& .MuiFormHelperText-root": {
             m: 0,
             color: "hsl(0, 100%, 67%)",
+          },
+          "& > .MuiInputBase-root:hover": {
+            borderColor: "hsl(259, 100%, 65%)",
+            "& fieldset": {
+              borderColor: "inherit",
+              borderWidth: "1px",
+            },
           },
           "& > .MuiInputBase-root.Mui-focused": {
             borderColor: "hsl(259, 100%, 65%)",
@@ -70,7 +77,12 @@ const DateInput = (props: Props) => {
             color: "hsl(0, 0%, 8%)",
             caretColor: "hsl(259, 100%, 65%)",
           },
+          "& input[type=number]::-webkit-inner-spin-button,& input[type=number]::-webkit-outer-spin-button":
+            {
+              appearance: "none",
+            },
         }}
+        autoComplete="off"
         onChange={(e) => setValue(e.target.value)}
         error={
           props.error ||
