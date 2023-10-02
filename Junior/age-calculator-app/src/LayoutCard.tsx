@@ -1,5 +1,6 @@
 import { Card } from "@mui/material";
 import DateInput from "./DateInput";
+import IconButtonAndDivider from "./IconButtonAndDivider";
 
 const LayoutCard = () => {
   return (
@@ -22,6 +23,7 @@ const LayoutCard = () => {
         // error
         // errorHandler={() => "Must be a valid date"}
       />
+      <IconButtonAndDivider />
     </Card>
   );
 };
