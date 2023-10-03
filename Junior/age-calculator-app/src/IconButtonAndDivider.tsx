@@ -15,8 +15,19 @@ const IconButtonAndDivider = (props: Props) => {
       <Divider sx={{ width: "90%" }} />
       <IconButton
         onClick={props.onClick}
-        sx={{ bgcolor: "hsl(259, 100%, 65%)" }}
-        size="large"
+        sx={{
+          bgcolor: "hsl(259, 100%, 65%)",
+          height: "4rem",
+          width: "4rem",
+          transition: "0.5s",
+          "&:hover": {
+            bgcolor: "hsl(0, 0%, 8%)",
+            transform: "scale(1.2)",
+          },
+          "&:active": {
+            transform: "scale(1)",
+          },
+        }}
       >
         <SvgIcon>
           <svg
