@@ -21,7 +21,7 @@ const ResultTypography = (props: Props) => {
           letterSpacing: "0.2rem",
         }}
       >
-        {props.highlighted}{" "}
+        {props.highlighted}
       </span>
       {props.text}
     </Typography>
