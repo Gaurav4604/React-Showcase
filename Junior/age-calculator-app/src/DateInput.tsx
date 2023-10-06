@@ -30,7 +30,7 @@ const textTheme = createTheme({
     },
     h2: {
       letterSpacing: "0.1rem",
-      fontSize: "0.9rem",
+      fontSize: "0.7rem",
       marginBottom: "0.1rem",
     },
   },
@@ -38,7 +38,7 @@ const textTheme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          width: "9rem",
+          width: "8rem",
           fontSize: "1.5rem",
         },
       },
