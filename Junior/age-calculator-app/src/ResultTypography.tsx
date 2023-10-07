@@ -12,7 +12,8 @@ const ResultTypography = (props: Props) => {
         fontFamily: "poppins",
         fontStyle: "italic",
         fontWeight: "700",
-        fontSize: "4rem",
+        fontSize: "5rem",
+        lineHeight: "4.75rem",
       }}
     >
       <span

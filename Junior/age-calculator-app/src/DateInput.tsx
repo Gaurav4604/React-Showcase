@@ -9,7 +9,7 @@ import {
 // import "@fontsource/poppins/800-italic.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/400-italic.css";
-import { useState } from "react";
+import { Ref, forwardRef, useImperativeHandle, useState } from "react";
 type Props = {
   label: string;
   placeholder: string;
@@ -96,8 +96,17 @@ const textTheme = createTheme({
   },
 });
 
-const DateInput = (props: Props) => {
+export type DateInputRef = {
+  getValue: () => string;
+};
+
+const DateInput = forwardRef((props: Props, ref: Ref<DateInputRef>) => {
   const [value, setValue] = useState("");
+
+  useImperativeHandle(ref, () => ({
+    getValue: () => value,
+  }));
+
   return (
     <ThemeProvider theme={textTheme}>
       <Stack>
@@ -136,6 +145,6 @@ const DateInput = (props: Props) => {
       </Stack>
     </ThemeProvider>
   );
-};
+});
 
 export default DateInput;
