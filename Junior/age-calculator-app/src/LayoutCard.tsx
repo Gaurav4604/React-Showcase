@@ -68,9 +68,9 @@ const LayoutCard = () => {
         </Stack>
         <IconButtonAndDivider
           onClick={() => {
-            ddRef.current?.getValue();
-            mmRef.current?.getValue();
-            yyyyRef.current?.getValue();
+            console.log(ddRef.current?.getValue());
+            console.log(mmRef.current?.getValue());
+            console.log(yyyyRef.current?.getValue());
           }}
         />
         <ResultTypography highlighted="--" text="years" />
